@@ -140,3 +140,5 @@ body {
   transition: background 0.25s, color 0.25s;
 }
 .resume-dl-btn:hover { background: var(--sage); color: var(--ink); }
+
+@media (max-width: 540px) { .section-peek { display: none; } }

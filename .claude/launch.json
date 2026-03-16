@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "portfolio",
+      "name": "Sophie Luu Portfolio",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["/Users/sophieluu/Documents/GitHub/portfolio/.claude/serve.py"],
-      "port": 3000
+      "runtimeArgs": ["-m", "http.server", "4000", "--directory", "/Users/sophieluu/Documents/GitHub/portfolio"],
+      "port": 4000,
+      "autoPort": false
     }
   ]
 }

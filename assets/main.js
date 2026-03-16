@@ -86,6 +86,42 @@ document.querySelectorAll('nav a, a.nav-transition').forEach(link => {
   });
 });
 
+/* ── Hamburger menu ── */
+(function initHamburger() {
+  const btn = document.getElementById('nav-hamburger');
+  const dropdown = document.getElementById('nav-dropdown');
+  if (!btn || !dropdown) return;
+
+  // Clone nav links into dropdown
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) {
+    const ul = navLinks.cloneNode(true);
+    dropdown.appendChild(ul);
+  }
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = btn.classList.toggle('open');
+    dropdown.classList.toggle('open', open);
+  });
+
+  // Close on link click
+  dropdown.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('open');
+      dropdown.classList.remove('open');
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+      btn.classList.remove('open');
+      dropdown.classList.remove('open');
+    }
+  });
+})();
+
 /* ── Mark active nav link based on current page ── */
 (function markActiveNav() {
   const page = window.location.pathname.split('/').pop() || 'index.html';
