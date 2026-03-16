@@ -48,6 +48,7 @@ body {
   color: var(--soft); line-height: 1.85;
   opacity: 0; animation: fadeUp 0.9s 0.65s forwards;
 }
+.hero-tagline strong { font-weight: 700; color: var(--ink); }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 0.75rem;
   font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
