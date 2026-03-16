@@ -1,5 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=EB+Garamond:ital@1&display=swap');
-
+@font-face {
+  font-family: 'Figtree';
+  src: url('../fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Figtree';
+  src: url('../fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 @font-face {
   font-family: 'Gaya';
   src: url('../fonts/gayatrial-regular.otf') format('opentype');
@@ -24,7 +36,7 @@
   --soft:         #64606B;
   --taupe:        #D0BCB9;
   --font-display: 'Gaya', serif;
-  --font-body:    'Jost', sans-serif;
+  --font-body:    'Figtree', sans-serif;
   --gap:          clamp(4rem, 10vw, 9rem);
 }
 
@@ -130,7 +142,6 @@ footer * { color: inherit; }
   opacity: 0; animation: fadeUp 1s 0.4s forwards;
 }
 .page-title span { color: var(--ink); }
-.amp { font-family: 'EB Garamond', serif; font-style: italic; }
 
 /* ── Section label (shared between portfolio & experience) ── */
 .section-label {

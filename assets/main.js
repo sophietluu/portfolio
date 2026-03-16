@@ -5,7 +5,7 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Logo trace animation ── */
-const logoPath = document.querySelector('.nav-logo-img .cls-3');
+const logoPath = document.querySelector('.nav-logo-img .cls-1');
 if (logoPath) {
   const len = logoPath.getTotalLength();
   logoPath.style.strokeDasharray = len;
@@ -19,7 +19,7 @@ document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top  = e.clientY + 'px';
 });
-document.querySelectorAll('.stats-bar, footer, #contact, .resume-download-wrap, .code-block, .coming-soon').forEach(el => {
+document.querySelectorAll('.stats-bar, footer, #contact, .code-block, .coming-soon').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('on-dark'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('on-dark'));
 });
