@@ -45,7 +45,7 @@
       </div>
       <div class="meta-col">
         <span class="meta-key">My Role</span>
-        <span class="meta-val">Solo — Concept, Electronics, Fabrication</span>
+        <span class="meta-val">Solo: Concept, Electronics, Fabrication</span>
       </div>
       <div class="meta-col">
         <span class="meta-key">Tools</span>
@@ -110,8 +110,8 @@
     <section id="materials" class="proj-section reveal">
       <p class="proj-label">Materials</p>
       <ul class="proj-list">
-        <li>3 Solenoid Valves — power = open, no power = closed</li>
-        <li>3 Soil Sensors — provides moisture value</li>
+        <li>3 Solenoid Valves: power on = open, power off = closed</li>
+        <li>3 Soil Sensors: provides moisture value</li>
         <li>1 Arduino Uno</li>
         <li>1 Protoboard</li>
         <li>3 Diodes</li>
@@ -126,7 +126,7 @@
     <section id="circuit" class="proj-section reveal">
       <p class="proj-label">Circuit</p>
 
-      <p>I used <a href="https://www.circuito.io" target="_blank" rel="noopener" class="proj-link">circuito.io</a> to build the circuit diagram — this helped me organize wire routing, identify the best connection paths, and source additional components beyond the main solenoid valve and soil sensor. All parts were then sourced from <a href="https://www.sparkfun.com" target="_blank" rel="noopener" class="proj-link">SparkFun</a>.</p>
+      <p>I used <a href="https://www.circuito.io" target="_blank" rel="noopener" class="proj-link">circuito.io</a> to build the circuit diagram, which helped me organize wire routing, identify the best connection paths, and source additional components beyond the main solenoid valve and soil sensor. All parts were then sourced from <a href="https://www.sparkfun.com" target="_blank" rel="noopener" class="proj-link">SparkFun</a>.</p>
       <p>Although I primarily followed this circuit diagram, I made a few minor changes during assembly for ease of construction.</p>
 
       <div class="proj-img reveal">
@@ -213,7 +213,7 @@ char menu() {
     <!-- Code -->
     <section id="code" class="proj-section reveal">
       <p class="proj-label">Final Code</p>
-      <p>With all components confirmed working, I wrote the final code to achieve the desired watering functionality — reading each sensor, checking against its moisture threshold, and opening the appropriate solenoid valve for a set duration before entering a cooldown period.</p>
+      <p>With all components confirmed working, I wrote the final code to achieve the desired watering functionality, reading each sensor, checking against its moisture threshold, and opening the appropriate solenoid valve for a set duration before entering a cooldown period.</p>
 
       <details class="code-details reveal">
         <summary>Final Code</summary>
@@ -294,7 +294,7 @@ void activateSolenoidValve(SolenoidValve&amp; valve, bool&amp; valveActive) {
     <section id="fabrication" class="proj-section reveal">
       <p class="proj-label">Fabrication</p>
       <p>I started by modelling the enclosure in CAD, keeping a similar shape to my previous prototype. After measuring the birch wood thickness (0.205 in), I laser cut the pieces and assembled the enclosure with wood glue.</p>
-      <p>The main challenge was cutting pieces to the precise dimensions from my CAD model — small tolerances in the laser cutter required a few iterations to get tight-fitting joints.</p>
+      <p>The main challenge was cutting pieces to the precise dimensions from my CAD model; small tolerances in the laser cutter required a few iterations to get tight-fitting joints.</p>
 
       <div class="proj-img-pair reveal">
         <div class="proj-img">
