@@ -10,7 +10,7 @@ body {
 
 /* ── Portfolio body container ── */
 .portfolio-body {
-  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 5rem) 3rem;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 5rem) var(--gap);
 }
 
 /* ── Section label override for portfolio (adds margin-bottom) ── */
