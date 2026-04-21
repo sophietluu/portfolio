@@ -229,7 +229,8 @@ body {
   margin: 0;
 }
 .proj-thirds > video,
-.proj-thirds > img {
+.proj-thirds > img,
+.proj-thirds > iframe {
   flex: 1 1 0;
   min-width: 0;
   width: 0; /* forces flex to size it, not intrinsic width */
@@ -514,15 +515,20 @@ body {
   margin: 2rem 0;
 }
 .proj-video-aside > video,
-.proj-video-aside > img {
+.proj-video-aside > img,
+.proj-video-aside > iframe {
   order: 2;
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center;
+  aspect-ratio: 9 / 16;
   border: 2px solid var(--sage);
   border-radius: 2px;
   display: block;
+}
+.proj-video-aside > video,
+.proj-video-aside > img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
 }
 /* ── Multiple stacked media on the right ── */
 .proj-video-aside > .aside-media {
@@ -533,10 +539,18 @@ body {
   min-width: 0;
 }
 .proj-video-aside > .aside-media video,
-.proj-video-aside > .aside-media img {
+.proj-video-aside > .aside-media img,
+.proj-video-aside > .aside-media iframe {
   width: 100%;
   min-width: 0;
   max-width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 2px solid var(--sage);
+  border-radius: 2px;
+  display: block;
+}
+.proj-video-aside > .aside-media video,
+.proj-video-aside > .aside-media img {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
