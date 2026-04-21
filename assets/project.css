@@ -230,7 +230,7 @@ body {
 }
 .proj-thirds > video,
 .proj-thirds > img,
-.proj-thirds > iframe {
+.proj-thirds > .yt-crop {
   flex: 1 1 0;
   min-width: 0;
   width: 0; /* forces flex to size it, not intrinsic width */
@@ -514,19 +514,38 @@ body {
   align-items: start;
   margin: 2rem 0;
 }
+/* ── YouTube crop wrapper (3:4, clips 9:16 shorts) ── */
+.yt-crop {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 2px solid var(--sage);
+  border-radius: 2px;
+  display: block;
+  width: 100%;
+}
+.yt-crop iframe {
+  position: absolute;
+  width: 100%;
+  height: 133.34%; /* 16/9 ÷ 3/4 — fills 3:4 frame from 9:16 source */
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border: none;
+}
+
 .proj-video-aside > video,
 .proj-video-aside > img,
-.proj-video-aside > iframe {
+.proj-video-aside > .yt-crop {
   order: 2;
   width: 100%;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 3 / 4;
   border: 2px solid var(--sage);
   border-radius: 2px;
   display: block;
 }
 .proj-video-aside > video,
 .proj-video-aside > img {
-  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
 }
@@ -540,18 +559,17 @@ body {
 }
 .proj-video-aside > .aside-media video,
 .proj-video-aside > .aside-media img,
-.proj-video-aside > .aside-media iframe {
+.proj-video-aside > .aside-media .yt-crop {
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 3 / 4;
   border: 2px solid var(--sage);
   border-radius: 2px;
   display: block;
 }
 .proj-video-aside > .aside-media video,
 .proj-video-aside > .aside-media img {
-  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
   border: 2px solid var(--sage);
