@@ -304,7 +304,7 @@ void loop() {
               <p>I 3D printed a custom adapter to seat the solenoid on top of the motor in four quick iterations. Two constraints emerged from testing. The solenoid wire required limiting rotation to ±180° to avoid tangles, and the energize/de-energize delay needed to be at least 80 ms to let the plunger fully extend.</p>
               <p>Solenoid plunger actuating on the custom stepper-mounted adapter. The mechanism cycled reliably without sugar, but jammed when real material was introduced.</p>
             </div>
-            <video src="assets/projects/measurely/solenoid_working_no_sugar.mov" controls muted playsinline></video>
+            <iframe src="https://www.youtube.com/embed/OoINJWxOqBw" allowfullscreen frameborder="0"></iframe>
           </div>
           <details class="code-details" style="margin-bottom:1.5rem;">
             <summary>Initial Solenoid + Stepper Test Code</summary>
@@ -356,7 +356,7 @@ void loop() {
           <div class="proj-thirds">
             <p>The first positioning approach used a <strong>stepper motor carousel + rack and pinion</strong> to move a motor horizontally over the correct slot. I CADed the gear myself (first time), laser cut the flat pieces, and 3D printed the gear. The hardware tested well in isolation, but wiring multiple stepper drivers simultaneously caused <strong>electrically floating pins</strong> to generate random motor pulses; idle steppers vibrated uncontrollably. The fix library made motors loud and stuttery, so I replaced the whole approach with the H-Bridge + linear actuator.</p>
             <iframe src="https://www.youtube.com/embed/IYUxtR8Yk4k" allowfullscreen frameborder="0"></iframe>
-            <video src="assets/projects/measurely/rack_and_pinion_enclosure_test.mov" controls muted playsinline></video>
+            <iframe src="https://www.youtube.com/embed/hKceOBsZ8JQ" allowfullscreen frameborder="0"></iframe>
           </div>
         </div>
       </details>
