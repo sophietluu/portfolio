@@ -514,6 +514,20 @@ body {
   align-items: start;
   margin: 2rem 0;
 }
+/* ── Full-width horizontal trailer (16:9) ── */
+.proj-trailer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 2rem 0;
+}
+.proj-trailer iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  border-radius: 2px;
+}
+
 /* ── YouTube crop wrapper (3:4, clips 9:16 shorts) ── */
 .yt-crop {
   position: relative;
