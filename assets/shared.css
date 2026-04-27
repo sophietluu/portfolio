@@ -49,6 +49,10 @@ body {
 }
 
 /* ── Cursor ── */
+a, button, [role="button"], label, select, summary {
+  cursor: none;
+}
+
 .cursor {
   position: fixed; width: 10px; height: 10px;
   background: var(--ink); border-radius: 50%;
@@ -96,7 +100,7 @@ nav.scrolled { background: var(--sand); }
   gap: 5px;
   width: 32px; height: 32px;
   background: none; border: none;
-  cursor: pointer; padding: 4px;
+  cursor: none; padding: 4px;
   z-index: 101;
 }
 .nav-hamburger span {

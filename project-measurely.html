@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sophie Luu | Measurely</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/shared.css">
+  <link rel="stylesheet" href="assets/project.css">
+  <style>
+    .img-placeholder {
+      aspect-ratio: 4 / 3;
+      background: var(--beige);
+      border: 1.5px dashed var(--primary);
+      opacity: 0.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      color: var(--ink);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+    }
+    .img-placeholder.wide { aspect-ratio: 16 / 9; }
+    .img-placeholder.tall { aspect-ratio: 3 / 4; }
+    .pin-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 1.25rem 0; }
+    .pin-table th { text-align: left; font-weight: 600; color: var(--ink); border-bottom: 1.5px solid var(--beige); padding: 0.5rem 0.75rem; }
+    .pin-table td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--beige); color: var(--soft); }
+    .pin-table tr:last-child td { border-bottom: none; }
+    .note-box {
+      background: var(--beige);
+      border-left: 3px solid var(--primary);
+      border-radius: 0 4px 4px 0;
+      padding: 0.9rem 1.1rem;
+      margin: 1.25rem 0;
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+    .note-box strong { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo"><svg class="nav-logo-img" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120.62 178.68" aria-label="Sophie Luu">
+  <defs><style>.cls-1{fill:none;stroke:var(--primary);stroke-miterlimit:10;stroke-width:10px}</style></defs>
+  <image width="259" height="531" transform="translate(31.97 20.97) scale(.24)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEAAAIRCAYAAABK0gj7AAAXhElEQVR4nO3d3XFTWdbG8W2K+3EGYyJoE0GbCDARIFfpThdABG5HAFzoTlU+RICJAHUEuCNodQSjieB9a8FSj9r4Q5KPzl57Pf9fVQ/0FIM0ts+jtb/WLgUAAAAAAAAAAAAAAAAAAAAAAAAAAOR0UPsNoD/j0eSolGL/7GI566bXfD/0EALBjUeTE//t6td/rz3oj3noN2GhsFz7/X/937+Hxaybzvf42hgIIRDrE/xk7SE/LqUclvhWobAopfzlv7+edVP7dzSAEBjYeDQ59IfdHvJfG3rYdzH3UPjDfk8wxEQIDPfQ/7r28KtaejD87qHAHEQAhMAejEeTY3/gX4s/9A9ZrIXC1aybruYfMCBCoN8H3x760z1P1mV2VUr5QiAMixB4/ISePfRvePB7RyAMhBDYwXg0GZVSXnoAYL+WHggfmUPYD0Jguwm+t17yU+7Xce1h0FV6/ZQIgc1K/vNSin36I0518LGU8oHJxMcjBO7Aw98EwqAHhMANPPxNIgwegRD455j/PWV/82FwMeumH2q/kZYQAj8C4Ddf5su6fVdxE9IZB5w2Ix0CfkLvktn+tK48DNiJeI8D4dL/3Jf8kNvSg8ACAbeQCwE+/WVRFdxBKgTGo4lN/PHpr10VvGKuQDAEfNnvc7ITfauuP6tmHsV/v2kzj5tdieyoc0ne32DFNhm9q/0mojgQKf8/N/yDvVhvzGH/PkRzDj8VueqF8Mtat6Ms5l4VLIu41CEwHk2s9LchQIsHZlaNNxbBJlSPbzRJadnCg0C6uUnaEBiPJpcN7fdfPfhfWpvFHo8mpx4IrfZRWKqvHqQLAf+0umzkmK+VpJ+ynIpba6wyanD4dZbl+yAdAh4AXxsYu3a+vTVMqb+nCmHVaakVF7NuartHpaQJgQYCQPKQi6/MvGmoOuhm3fSsCEkRAg0EgH3yv1N6+O9pytLCGY1OKQiaD4HgATD3sWbasj9xGHQqQZAhBL4GXKpa+ie/5ETTlmFgZziiulCYI2g6BIIuA7IJZfs5g/eBJxDPsof5QeM9AKJ9itinPw0tdl9NuAw6RDjLHAQHDf/A2FbgKDiYknuPx7KU8iLrzsKDRsvHb4E+Mdh6qlEVLEspzzKu8Dwp7Yl0GMg+GZ5n/YSoxbfwPvevbxSHvgqVzpMG+wFEWQq89hIx3SdDBL6s+sL3WERx7D+DqRw0diQ4ShITANqnQV9lOnB00NCE0bcgp9SWPgRgA9Dw9z++DzIUXGb6GWhlOHAeJACKDwFSfPNb4kt0NjyIMPw69InLFJ40Mgx4G2i9ONJklRT/2kcJghMfpjQvfAgE2hB0lXnDSCuCBcG5L1k37UkD48CTKDfa1H4TCBcEhxmGBaFDIFAVIH0MOKJAQXDiH1bNehL8bMBRkGFAmuWghEEQoUJ77ytYTQoZAv4FtfPmEdCfPjAP6NpBcBioas0RAoFaUVljCZYDg/MJ29qnN9+2OkkYNQSiVAEXtd8ANuM3Clkvh5ouS4PChYBPskRIVKqA9rza4hq2fU0SnpTGhAsBb1MdwafabwDb8RUcC4KazktjngS8vCJCktp9f7VLS+y+YlBzMvektSXDUCEQqAqw+wHQKG/xVjPEz0tDooVAlARlX0D7XlXcSHTUUjXwJFhLqQjLgoNc/Y1B5gdq7h94XRoRJgRKKS9LDFQBuTYS1RoWnLSyUhApBKJ0mP299htAr84qDgvOSwNChECgoYChX0AiPrT7WLEaOCrBhQiBUsqvJYYl8wH5+FViteZ5zktwUUIgytiJKiCvWnsHTqOfMKweAl4uRWkjzqpAUhUnCQ8DzXfFDIFAAWD+qv0GkPJA2JsSWIQQiDIfgOR8K3hX6dKS4xJUhBAI+8VBSlQDAUMgyqRgCdCvDnvmqz81qoHTElTVEAhYIoWexUXT1cCh74cJp3YlEH4jBfKpWA28LAHVDoFolQB01KgGTktAtUPglxLLv2q/AQxaDcwH/nqHHBLUDoFoY3AqEy0XA7/eIuLkc+0QiPbQMUeht29gMcBLfb8kZdZNn0VsW1c7BKJVAtYRJtp7QrvVwNyvsn8e+TLbp7XfQEBWnYRLa+zNlV0j1vMHkj3wF62cSK1WCQTuuhJyGQd7bUN21cNfZX+PNTi1kv+slQAwVAI/ixpO2J+Pj2hyu/A7Kj60enP1QeVK4GuJ6VlLSY7HG48mf245Mbzwkj/sWH9TVAK3s08F60YDrWrg/QZ/bu4Pf5p5I0Lg7nbRhIDmBOFd7BP/o99wlErtJcKomro8AnvbQbi8MdmXLgBqVwLRNgrd1iCy+fEetvLJJ4aXPjxodrKvlRC4bqEayDDxg41d2X+ofc+ZE7gf1YCQ2Y9PfakAMMwJPFwNMEGI1AiBh50H7IAE9IYQ2Mxlf19yIJaaIdDSrKu1jN5kIwnQnGrbhs14NPm/0pZXfpMNkAbDge1cMj+AbGqHQPS9AjcdehDQeARp1A6BluYFVmyl4CtBgCxqh8DvpU0WBEwUIoXaIdBiJbAyGo8mLB2iebVDoLU5gZsIAjSv6hJho8uEt+nsqGntNwG0WAlkqAYMFQGaFSEEsrRpIgjQpAgh0OoKwV1B8I3lQ7QkQghkqQRu7iPgSjM04UmQRg4Zg8AqAo4gI7zqIeC+lHwOPQhoWIrQooRA5pN5dtaATUUIq/o+gZXxaPI1+RVg134UmZuNEEqUSmDV7jmz1TzBae03AoSsBMx4NPlPz1dER2Udbd8p9LRHfJEqgSLU7nnkVUHm4Q8aES0E7NYXFUe+n4CW5qgq1HDA+Ey62rKaTRqmvesOsUWrBMxF0bOaNKQqwODCVQLC1cDKwquCbLsoEVTUELAVgj9FVgruYldiX7CCAMXhwOo8gdIk4W3eWhCyrwCSlcDKeDSxaoDTeD8OWNkQgd2G0KgE1tCy64cTrwp+o1cBpCoBMx5NPpdS2Gr7PwvfbZj50BUG1EIIMEl49xDBwoC9BcgdAsYnx6wiwO1brW0VgfkC5A0Bw7DgXqvVlA8sKSLbxODNSUJO3d3OhkznPnmouskK2SsB46furPkI7rfwIYLKqUyohIDx/fX2qYfNJg8tDNiCjDwhYJgf2BphgHQhcOjDAlp6b4eVBOQIAeM9/b+KHzLaFWGA9kPAMFHYS+8GlhXFNR0CxpfE6Ou/O/YYiGs+BAwrBr2FgW1DZllRTIoQMOLdiPrEHgMxaULAEAS9os2ZiFQhYAiC3rHHILl0IWAIgr3g6HJSKUPAEAR7wx6DZNKGgGHVYK8IgyRSh4BhH8FesccggfQhsBYE79livDeEQcMkQsBw1mAQbDhqkEwImPFocuS9Cjl9uF9sOGqIVAisHUO23YW0Md+/a9+KTFOTwORCYIWVg0Gx4Sgw2RBYa2VuVQE9CYbBsmJA0iFgmCeoghuXA5EPgZXxaPLebwLGgMuKs25qjWNRESGwhuFBFawkVEYI3L56YMuIdscBhsPkYSWEwB3Go8lbv9+AScNhXfmyIncrDoQQeHjS0FYPqAqGRxPUgRACG6AqqIZtyAMgBDZEVVAVOw/3iBDYEisIVTFfsAeEwO4rCDZpyL6C4XFsuWeEwOOPJ9smIyYOh7fwVQSrDvAIhEB/QwQLA1tNwPD7C85YUtwdIdDvEMGGB2/YW1AFS4o7IgT2s4pg8wXchjQ8hgg7IAT2e2OyhQHzBcNjFWELhMAwTU4tDJgvGH4V4WLWTe3YMu5BCAzbyYj5guExcfiAJw/9AfTDz80/84YaGI4Nx7751m/cgkqg3uShLSnS7HT4quDVrJvaUAGOEKiIycMqlr6vgE1GjhAIgM1GVdDn0BECgbCSUOV04tmsm9qvsgiBgFhJGNTSzyBYO3RJhEBQbEMeXDfrpmdFECHQThjYhiPs13Up5YXa6gEh0AjOJAxm6UEgM09ACDSGMBjMmco8ASHQKMJgEB9m3fRdSY4QaBwNUPeu89WDtPMEhEAS7D7cq+vME4aEQDKEwd5cZ91YRAjkDgM7pGTNUNGPZcaVA0IgObYi926ZLQgIARGEQa+WmYKAENAMAxsmcNvy4yyzBAEhIIhzCb1ZZggCQkAYYdCL5oOAEAC7D/sJgmet7iMgBPA3tiJrbigiBPATLlrd2XzWTV+UxhACuBO7D3fSXHMSQgAPohFq7mPIhAA2xh6DrTxvZcWAEMBWWFbc6obk5y1MFBIC2Am3KG3katZNX5XgCAE8CqcVH2QNSULfP0kIoBd+4ad1ROZMwj8tfVhgw4OQuJUYvfBPu+dWAvMl/QcLxcsSGJUAeseSYlvDAkIA+1xFsOGBDRNQ4g4LCAEMMXFo5fARX+oScrWAOQHs1aybzn2uIGQpPLBTD8VQqAQwGH8APouvICxm3fRZCYRKAENXBc/EVxCOfPt1GFQCqLmvwHodKlpEqgaoBFB7X0ETh2wyVwOEAKrxU3YvRIcH5yUIhgMIQXR4cBah7wCVACIND6wqCH/0tkevSwBUAojY3/BS6A7FZ7V3EVIJIOo8gcqE4aj2GyAEEI5145l1U1s5qD5eVhgSEAIIy7v2dgLLhcc13wAhgNBEguCk5osTAghPIAhe1nxxQgBNSB4EJzVfnBBAMzIHwbjiEWNCAC0GgZ1GzOa41gsTAmjRq4T7CH6t9cKEAJrjt/q8SrbF+KjWCxMCaJJvtW3uGvB7MBwAdtxi/C7Z1W6DoxJA0/z0YZZ+BEc1XpQQQAa2YhCun/8OqjRgJQSQZaLQgqB1xzVelBBApk7G3G2wA0IAmVwkGRYMihBAtmFBmtWCoRACSGXWTa+SbiveG0IAWYcF2BAhgKyThFQDGyIEkNXH2m+gFYQAMs8NsFKgFAK273o8mihfeY2ffeKL8rCnJUdHltfevz1t5xnspIt0519UTYaAf+LbQ//mxqELa9hICODv48bj0eRa6Daj/CHg/dntwT+947DFqQWEbxoBzJeGQuC6xos2EQJ+l/ubDb+Z9mfZQ46VeUNDgmWNF30avMHCG3+ot5nws/kBQgB/7xkYjyZ8NVq6lXg8mpz6w/+YFszPvesMYD9TX2v39t/ErJseyFYC/qk/8k/xPrqrvElyvhz9uG4hBCT3Cdjy3ng0sbvo//RxW1/tlb5PEPb0d6F9f5X45rVe+Gmg5b0+2WvYsILlQpgWhoaL9CGwwfJe36yyIARgWlgy/iv1cMBL/m87zPQ/hm0jZhyIVWvy6ObZ5wRq3a7yvtLrAs0MB9IcILrD8Xg0+a32mwAesPQblarIHgLm3OcjgKjmNV9cIQSMzUkAUf1R88VVQsCGBcwPIKp5zRdXCQHzltUCBJ0PmNd8A0ohYC7ZSYhg5rXfgFoI2FIlwwJE63dQlVoImJGfVISI4MPAee03oBgChmEBIriuuT9APQRs6zLLhjqiVgKfSgCqIbA6bmxnGZDfv0tMVyUA5RAw772hCXKLWAnMIwwFjHoIMCxIzpeEIwb9pxKEeggY6270tvabwN6cBt0g1JUgCIEfOGSUl11IE01XAiEEfmBYkHcoEHE+4GMJhBD4H3oP5DNUK7ttXEWZEFwhBP6JYUEu1tMymo8lGELgZ585ZJRmq/BxwGXBeQmGEPjZUUN31+FuEb+HFyUgQuB29B5ovwqINiE4j1gFGELgbhwyalfE4+LvSlCEwP3DAg4ZNcY3fkWbC+gi331ACNyPQ0YN8XMg5wFvP3pXAiMENhsWcNqwDZ8D7gu4mHXT0NegEQKbIQiC827SxwEnAz+U4AiBzREEQXmlFu0Q2LKUclYaQAhsHwQRZ55l+e1SEb8nF9G2B9+FENhtDwHLh3EC4GvAeYB5C8OAFUJgN1Z+fqUrUT2+tfsyYAAsSymvSkMIgd3Zp9C34O2sMwfA14ATgeZF9NWAmwiBx/n+w8j154MPAf4MGgBnkTcF3YUQ6O8IMsODPfOqK+IcwGpXYKiOQZsiBPpz4sODaEtVKfjXNWoAXM26aRPLgbd5WvsNJHPobcxfemnYxBJRA+N/WwKMumvzupX9AHehEthvVfDbnv5+pfL/W/AAeNHaROBNB0O8iI2XA57vHsrCN440OV6s+OlvB4EiD62uMwSAoRIY6EiyTxyqBuG2W4Dt058AGAhzAsP53u1mPJrMvTII2WWmFg9I+/SPHpTXWSqAFUKgbhh8Uh8mNPTwpwwAw5xAfQtvQ91l++FK9PCvbhA+y/g9IgRisargy6ybhriyek8TfiO/DyDiJaF3sYBuehnwPoRA3OrgyocLzW1DvWk8mthNQC8DL/Xd5yz7kI0QiG/pgfDFj6guG/nEXz34J0F3+T1k6eP/5kP4IYRAe+yH0iYVf48SCmsXf/7qv0Y83LONuR0HjvC1HQIhkGPosPBQsIBY7nP50U/xrR76X/yBb2l8/5B3LTUE6QNLhO078n/+nmUfjyar367CwELir7X/zfewuOPvO7zxSf6L/3er18nqutWjwI9FCOTWyvJbbRezbip7zoMQgLI5pz0JAWjiUNcaKgEoWfruzA8qM/+bIASgomvpLoAhEQLIjof/AYQAsuLh3xAhsJnrBLvglMb8duCHsn9DhMBm7H75hR99bfEQjEJIf/Suv0z4bYkQ2JB/spyNR5N3jR6HzXqw6qPiLr8+EQJb8k8a21v+wRtjvPYTcy2elGvR6kQln/o9IQQewQ/qzL06WB2dtV/RL/uk/+QPPmP9nhEC/VUHNhvd3ThLTyDsbr2HAg/+HhECewyEta46Wc7ZD9InIWt7tagIgT3zH+jvP9Tj0WR15NeO56qHwqoxyveHn1n9egiBAXlZ+49+dT65eLzWoCNbMCz9QbcH3v7/XzObHwshEGRy8ZbuPVY12K//XmvocRT8Qbdf/1jrdmQPPOv2wRECAfknpf3z09jYJx5X1cJ6MPzrjiriZIeH+Sb77/57y5/hIU+AEGiMf7JyhRl6w4WkgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOIIAUAcIQCIIwQAcYQAII4QAMQRAoA4QgAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFA3NPab6ARr8ejyUntN4EmLWbdtCuBEQKbGe35+4C85qWU0CHAcAAQRwgA4ggBQBwhAIgjBABxhAAgjhAAxBECgDhCABBHCADiCAFAHCEAiCMEAHGEACCOEADEEQKAOEIAEEcIAOKGai/2qZTy+0CvBUSyqP0GHvL/5v46Dk17aGsAAAAASUVORK5CYII="/>
+  <path class="cls-1" d="M83.3,8.03c12.15,4.72,29.02,16.2,30.37,31.72.67,13.5-12.15,17.54-12.15,34.41,0,12.82,8.1,16.2,12.15,29.69,5.4,18.89,0,47.91-20.92,62.08-22.94,15.52-51.96,3.37-58.03.67-8.77-4.05-24.29-10.8-27.67-24.29-4.05-15.52,13.5-22.94,12.82-43.86-.67-17.54-13.5-19.57-14.85-37.79-.67-18.89,13.5-36.44,26.32-45.21,3.37-1.35,26.32-16.87,51.96-7.42Z"/>
+</svg></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-dropdown" id="nav-dropdown"></div>
+
+  <!-- Project Hero -->
+  <header class="project-hero">
+    <a href="portfolio.html" class="project-back">
+      <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M6 1L1 5l5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Portfolio
+    </a>
+    <p class="project-eyebrow">Design &amp; Engineering · 06</p>
+    <h1 class="project-title">Measurely</h1>
+    <p class="project-subtitle">Assistive Baking Device</p>
+    <div class="project-meta">
+      <div class="meta-col">
+        <span class="meta-key">Year</span>
+        <span class="meta-val">2024–2026</span>
+      </div>
+      <div class="meta-col">
+        <span class="meta-key">My Role</span>
+        <span class="meta-val">Electronics, Engineering, Mechanics</span>
+        <span class="meta-val" style="margin-top:0.6rem;font-size:0.8rem;line-height:1.6;color:var(--soft);">I focused on electronics and their integration with physical fabrication, sourcing components, defining mounting points, cable routing, connectors, and strain relief, and collaborating with the team on tolerances and aesthetics. I also frequently lent support on CAD.</span>
+      </div>
+      <div class="meta-col">
+        <span class="meta-key">Team</span>
+        <span class="meta-val">Sophie Luu · Lily Dykstra · Sam Jarzembowski</span>
+      </div>
+    </div>
+    <div class="project-hero-tags">
+      <span class="hero-tag">Electronics</span>
+      <span class="hero-tag">Fabrication</span>
+      <span class="hero-tag">CAD</span>
+    </div>
+  </header>
+
+  <!-- Timeline nav -->
+  <aside class="timeline-nav" aria-label="Project sections">
+    <div class="timeline-track">
+      <a class="tl-dot active" href="#overview"   data-label="Overview"></a>
+      <a class="tl-dot"        href="#dispensing" data-label="Dry Dispensing"></a>
+      <a class="tl-dot"        href="#scale"      data-label="Integrated Scale"></a>
+      <a class="tl-dot"        href="#enclosure"  data-label="Enclosure V1"></a>
+      <a class="tl-dot"        href="#final"      data-label="Final Product"></a>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="project-content">
+
+    <!-- Overview -->
+    <section id="overview" class="proj-section">
+      <p class="proj-label">Overview</p>
+      <div class="proj-video-aside reveal">
+        <div>
+          <p>Measurely is a senior capstone project completed over two semesters. It is an assistive baking device designed to restore independence in the kitchen for people living with arthritis, Parkinson's, or similar mobility conditions. View the project website at <a href="https://measurely.co" target="_blank" rel="noopener" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">measurely.co</a>.</p>
+          <p>Baking requires a demanding combination of <strong>gross motor strength</strong>, such as pouring heavy ingredients, and <strong>fine motor precision</strong>, measuring spices, leveling spoons. For millions of people, those fine motor requirements present an insurmountable barrier. Managing physical tremors while simultaneously following complex recipe steps creates what researchers call <strong>Cognitive-Motor Interference (CMI)</strong>, which significantly increases error rates and safety risks in the kitchen.</p>
+          <p>Existing assistive devices address only isolated problems. Large-button scales exist but don't guide the user; automatic dispensers exist but don't handle bulk ingredients. Measurely combines both in an <strong>automated dispenser</strong> that handles precise small-ingredient measurements, paired with an <strong>integrated scale</strong> and <strong>guided display</strong> that walks the user through each step.</p>
+          <h3 style="margin:1rem 0 0.5rem;">System Components</h3>
+          <ul class="proj-list">
+            <li><strong>Dry ingredient dispenser</strong>, an auger/screw mechanism driven by a DC motor and linear actuator</li>
+            <li><strong>Integrated scale</strong>, an HX711 load cell with NeoPixel LED ring feedback</li>
+            <li><strong>Guided display</strong>, an Arduino Giga screen with tactile mechanical keyboard navigation</li>
+            <li><strong>Electronics &amp; integration</strong>, covering circuit design, power management, CAD for electronics housing, and the universal key mechanism</li>
+          </ul>
+        </div>
+        <div class="aside-media">
+          <img src="assets/projects/measurely/solution.jpg" alt="Measurely final product">
+        </div>
+      </div>
+    </section>
+
+    <!-- Trailer -->
+    <div class="proj-trailer reveal">
+      <iframe src="https://www.youtube.com/embed/vdL5cp5QZbI" allowfullscreen frameborder="0"></iframe>
+    </div>
+
+    <!-- Dry Ingredient Dispensing -->
+    <section id="dispensing" class="proj-section">
+      <p class="proj-label">Dry Ingredient Dispensing</p>
+
+      <div class="proj-video-aside reveal">
+        <div>
+          <p>The final dispenser uses an <strong>auger/screw mechanism</strong> driven by a DC motor. A single motor-driven key inserts into each spice slot's keyhole to rotate the auger, dispensing a precise amount. The key is positioned and engaged using an <strong>H-Bridge motor driver</strong> controlling a <strong>linear actuator</strong>, compact, reliable, and quiet compared to earlier approaches.</p>
+          <p>Linear actuator extending and retracting to position the DC motor key into the auger slot. Testing engagement timing before the universal key mechanism was finalized.</p>
+        </div>
+        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/hAMKv56z01o" allowfullscreen frameborder="0"></iframe></div>
+      </div>
+
+      <h3>Enclosure Fit</h3>
+      <p>After printing the first enclosure, I found the DC motor fitting was slightly too short and the canal for the linear actuator was too narrow, causing the key to scrape during operation. I remeasured both, updated the CAD, and reprinted. I also discovered the bottom enclosure was unnecessary, as the linear actuator's consistent movement eliminated the shaking that had required extra support in earlier designs.</p>
+
+      <div class="proj-img-pair reveal">
+        <div class="proj-img">
+          <img src="assets/projects/measurely/measurely-dispenser-enclosure-cad-v2.png" alt="Dispenser enclosure CAD, revised fit">
+        </div>
+        <div class="proj-img">
+          <img src="assets/projects/measurely/measurely-dispenser-enclosure-v2.png" alt="Revised dispenser enclosure assembled">
+        </div>
+      </div>
+
+      <h3>dispense_tsp() Function</h3>
+      <p>I wrote the dispensing logic as a modular <code>dispense_tsp(tsp)</code> function. Each teaspoon maps to a calibrated run duration, so the motor runs for a set amount of time rather than counting rotations. The function extends the linear actuator to engage the key, runs the DC motor for the corresponding duration, then retracts. This made it straightforward to call with different quantities from Sam's interface code.</p>
+
+      <details class="code-details reveal">
+        <summary>dispense_tsp() / Dispensing Control Code</summary>
+        <pre><code>// Linear actuator
+const int PWMA = 4, AI1 = 5, AI2 = 6, STBY = 7;
+// DC motor
+const int dcMotorPin = 8;
+
+const int actuatorSpeed     = 150;
+const int actuatorExtendMs  = 2000;
+const int actuatorRetractMs = 2000;
+const int msPerTsp          = 1850;  // calibrated ms per teaspoon
+
+void loop() {
+  dispense_tsp(1);  // pass number of teaspoons
+  delay(5000);
+}
+
+void dispense_tsp(float tsp) {
+  // 1. Extend linear actuator
+  digitalWrite(AI1, HIGH); digitalWrite(AI2, LOW);
+  analogWrite(PWMA, actuatorSpeed);
+  delay(actuatorExtendMs);
+  analogWrite(PWMA, 0);
+  delay(500);
+
+  // 2. Run DC motor for calibrated duration
+  digitalWrite(dcMotorPin, HIGH);
+  delay((int)(tsp * msPerTsp));
+  digitalWrite(dcMotorPin, LOW);
+
+  // 3. Retract actuator
+  digitalWrite(AI1, LOW); digitalWrite(AI2, HIGH);
+  analogWrite(PWMA, actuatorSpeed);
+  delay(actuatorRetractMs);
+  analogWrite(PWMA, 0);
+}</code></pre>
+      </details>
+
+      <h3>Universal Key</h3>
+      <p>After Lily's testing revealed that the auger screw could end up in a different rotational position after each dispensing cycle, we realized our key insertion would fail unless the keyhole happened to line up. We needed a key that would engage reliably at any insertion angle. After consulting three ITLL engineers, I settled on a <strong>dog clutch</strong>, a mechanism used in car transmissions where interlocking teeth engage regardless of entry angle. I added a slight ramp on each tooth to guide misaligned teeth into their slots during rotation.</p>
+      <p>I added a <strong>copper tape contact switch</strong> at the engagement point. While the key is rotating and not fully seated, the circuit stays open. Once the teeth slot fully into place, the copper tape pads touch and close the circuit, signaling the Arduino that engagement is confirmed and it can start counting dispense time. This turned a mechanical precision problem into an electrical one.</p>
+
+      <div class="proj-img-pair reveal">
+        <div class="proj-img">
+          <img src="assets/projects/measurely/universal_key_sketches.jpg" alt="Dog clutch brainstorm sketches">
+        </div>
+        <div class="proj-img">
+          <img src="assets/projects/measurely/measurely-key-slipring-assembly.jpg" alt="Slip ring, rod, and dog clutch assembly">
+        </div>
+      </div>
+
+      <p>To prevent wiring from twisting as the assembly rotates, I integrated a <strong>slip ring</strong>, an electromechanical connector that transfers power and signals from a stationary wire to a rotating component. I designed a rod that attaches to the DC motor shaft, press-fits into the inner portion of the slip ring, and mounts one half of the dog clutch on the opposite end.</p>
+
+      <div class="proj-img-pair reveal">
+        <div class="proj-img">
+          <img src="assets/projects/measurely/universal_key_iterations.jpg" alt="Universal key printed iterations">
+        </div>
+        <div class="proj-img">
+          <img src="assets/projects/measurely/universal_key_measurement_results.jpg" alt="Universal key test-fit into slot">
+        </div>
+      </div>
+
+      <details class="code-details reveal">
+        <summary>Universal Key / Engagement-Triggered Dispense Code</summary>
+        <pre><code>const int inputPin    = 3;   // copper tape contact
+const int PWMA = 4, AI1 = 5, AI2 = 6, STBY = 7;
+const int dcMotorPin  = 8;
+const int actuatorSpeed      = 50;
+const unsigned long spinTimeMs = 1800;
+
+void loop() {
+  // Start extending + spinning simultaneously
+  digitalWrite(AI1, HIGH); digitalWrite(AI2, LOW);
+  analogWrite(PWMA, actuatorSpeed);
+  digitalWrite(dcMotorPin, HIGH);
+
+  // Wait for copper tape to close (engagement confirmed)
+  while (digitalRead(inputPin) == HIGH) { /* keep trying */ }
+
+  // Start timing ONLY from confirmed engagement
+  unsigned long startTime = millis();
+  while (millis() - startTime &lt; spinTimeMs) { /* keep spinning */ }
+
+  digitalWrite(dcMotorPin, LOW);
+
+  // Retract
+  digitalWrite(AI1, LOW); digitalWrite(AI2, HIGH);
+  analogWrite(PWMA, actuatorSpeed);
+  delay(2000);
+  analogWrite(PWMA, 0);
+  delay(5000);
+}</code></pre>
+      </details>
+
+      <h3>Iteration and Reinforcement</h3>
+      <div class="proj-video-aside reveal">
+        <div>
+          <p>When we first loaded the screw with spice and tested, the jam force broke the key. The walls of the attachment are thin by necessity (they must fit through the center of the slip ring), leaving little material at the point of highest stress. I made three structural improvements in CAD:</p>
+          <ul class="proj-list">
+            <li>Added a <strong>chamfer</strong> at the stress concentration point</li>
+            <li>Increased print infill and made the center column solid past the attachment joint</li>
+            <li>Added a <strong>reinforcement ring</strong> at the base to prevent cracking under load</li>
+          </ul>
+          <p>Tolerances were 0.005 in. Even printing the same file multiple times produced small inconsistencies, so I printed three copies and test-fit each to find the best match.</p>
+        </div>
+        <img src="assets/projects/measurely/universal_key_cad.png" alt="Universal key CAD model">
+      </div>
+
+      <div class="proj-video-aside reveal">
+        <div>
+          <p>I also resolved a stepper motor issue during this phase. The motor was moving erratically on startup because it received a small pulse of current before the Arduino fully initialized. Adding a <strong>pull-down resistor</strong> on the step pin absorbed that initial current, eliminating the spurious movement, a small detail critical to dispensing accuracy.</p>
+          <p>Universal key engaging the auger screw, dispensing, and retracting. The dog clutch teeth self-align regardless of the auger's resting rotation angle — no manual positioning needed.</p>
+        </div>
+        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/GrUfrr2l0sc" allowfullscreen frameborder="0"></iframe></div>
+      </div>
+
+      <!-- Prototyping dropdown -->
+      <details class="proj-toggle reveal">
+        <summary>Prototyping / What Didn't Make It</summary>
+
+        <div style="padding: 1.25rem 1.5rem 0.5rem;">
+          <h3 style="margin-top:0;">Initial Circuit Planning</h3>
+          <p>Before building anything, I mapped out every electronic component and its pin requirements to confirm the Arduino Giga could handle the full system.</p>
+          <table class="pin-table">
+            <thead>
+              <tr><th>Component</th><th>Analog Pins</th><th>Digital Pins</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>DC Motor</td><td>-</td><td>8</td></tr>
+              <tr><td>5 kg Load Cell ×2</td><td>-</td><td>4</td></tr>
+              <tr><td>Liquid Pump</td><td>-</td><td>1</td></tr>
+              <tr><td>Linear Solenoids</td><td>-</td><td>2</td></tr>
+              <tr><td>LED Light Strip</td><td>-</td><td>2</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>0</strong></td><td><strong>17</strong></td></tr>
+            </tbody>
+          </table>
+
+
+          <h3>Solenoid + Stepper Motor</h3>
+          <div class="proj-video-aside" style="margin:1rem 0;">
+            <div>
+              <p>The first dispenser concept used a <strong>linear solenoid</strong> as a piston to push a spring platform and release small amounts of spice. To service multiple slots with one solenoid, I mounted it on a <strong>stepper motor</strong> that rotated it into position.</p>
+              <p>I 3D printed a custom adapter to seat the solenoid on top of the motor in four quick iterations. Two constraints emerged from testing. The solenoid wire required limiting rotation to ±180° to avoid tangles, and the energize/de-energize delay needed to be at least 80 ms to let the plunger fully extend.</p>
+              <p>Solenoid plunger actuating on the custom stepper-mounted adapter. The mechanism cycled reliably without sugar, but jammed when real material was introduced.</p>
+            </div>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/OoINJWxOqBw" allowfullscreen frameborder="0"></iframe></div>
+          </div>
+          <details class="code-details" style="margin-bottom:1.5rem;">
+            <summary>Initial Solenoid + Stepper Test Code</summary>
+            <pre><code>#include &lt;Stepper.h&gt;
+
+const int stepsPerRevolution = 2048;
+const int stepsPer60Deg = stepsPerRevolution / 6;
+const int maxSteps = stepsPerRevolution / 2;  // limit to 180°
+const int solenoidPin = 2;
+
+Stepper myStepper(stepsPerRevolution, 3, 5, 4, 6);
+
+int currentSteps = 0;
+int direction = 1;
+
+void pokeSolenoid() {
+  digitalWrite(solenoidPin, HIGH);
+  delay(80);
+  digitalWrite(solenoidPin, LOW);
+}
+
+void setup() {
+  pinMode(solenoidPin, OUTPUT);
+  myStepper.setSpeed(8);
+}
+
+void loop() {
+  if (currentSteps >= maxSteps)  direction = -1;
+  if (currentSteps <= -maxSteps) direction =  1;
+  myStepper.step(direction * stepsPer60Deg);
+  currentSteps += direction * stepsPer60Deg;
+  delay(300);
+  pokeSolenoid();
+  delay(500);
+}</code></pre>
+          </details>
+
+          <h3>Spring-Platform Failure</h3>
+          <div class="proj-video-aside" style="margin:1rem 0;">
+            <div>
+              <p>Integration testing exposed a fundamental flaw. The small tolerance gap required for the spring platform to slide allowed sugar granules to get trapped and jam the mechanism. Even stronger springs wouldn't solve it; PLA can't form an airtight seal, and sugar reaching the back of the device would make it impossible to clean.</p>
+              <p>Sugar granules jamming the spring-platform after just a few cycles. The tolerance gap needed for the platform to slide left an unsealed path for particles — impossible to clean with PLA.</p>
+              <p>After research and consulting three ITLL engineers, I switched to an auger/screw mechanism, since spices are meant to enter the screw's threads rather than be kept out, which works with the material rather than against it.</p>
+            </div>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/-leZjsgQryo" allowfullscreen frameborder="0"></iframe></div>
+          </div>
+
+          <h3>Rack and Pinion</h3>
+          <div class="proj-thirds">
+            <p>The first positioning approach used a <strong>stepper motor carousel + rack and pinion</strong> to move a motor horizontally over the correct slot. I CADed the gear myself (first time), laser cut the flat pieces, and 3D printed the gear. The hardware tested well in isolation, but wiring multiple stepper drivers simultaneously caused <strong>electrically floating pins</strong> to generate random motor pulses; idle steppers vibrated uncontrollably. The fix library made motors loud and stuttery, so I replaced the whole approach with the H-Bridge + linear actuator.</p>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/IYUxtR8Yk4k" allowfullscreen frameborder="0"></iframe></div>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/hKceOBsZ8JQ" allowfullscreen frameborder="0"></iframe></div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Scale -->
+    <section id="scale" class="proj-section">
+      <p class="proj-label">Integrated Scale</p>
+      <p>The scale needed to accurately measure ingredient weight and give users a clear, intuitive visual signal so they know when to stop pouring without watching a number on a screen.</p>
+
+      <h3>Hardware Design</h3>
+      <div class="proj-video-aside reveal">
+        <div>
+          <p>The scale uses a <strong>5 kg HX711 load cell</strong>. To convert torque into weight accurately, I designed thin spacers using calipers-measured M4 and M5 hardware. The surface is a <strong>three-layer acrylic stack</strong>. The first layer mounts the load cell, the second spaces the screw head from the shank, and the third (slightly translucent) serves as the decorative top surface and diffuses the LED light evenly. The diameter is 7 inches, with the top plate extending 0.2 inches larger to accommodate the NeoPixel strip underneath.</p>
+          <p>One challenge was the gray metal screw was visible through the translucent top plate. I tried opaque tape, paper inserts, and surface sanding, all of which looked unprofessional. The fix was painting the screw white; the top layer's light-diffusing properties blurred the slight texture irregularities from the paint, producing a clean result.</p>
+        </div>
+        <img src="assets/projects/measurely/scale_white_lights_prototype.jpg" alt="Scale with LED strip installed">
+      </div>
+
+      <h3>NeoPixel Feedback</h3>
+      <div class="proj-video-aside reveal">
+        <div>
+          <p>Based on mentor feedback from Dr. Zarske, I upgraded from a simple on/off LED strip to an <strong>Adafruit NeoPixel ring</strong> (94 pixels) that fills progressively as weight approaches the target and changes color based on accuracy, yellow for underweight, green for on-target (±5 g), and red for overweight. An engraving on the top surface guides users to center their bowl.</p>
+          <details class="code-details">
+            <summary>Scale + NeoPixel Control Code</summary>
+            <pre><code>#include &lt;Adafruit_NeoPixel.h&gt;
+#include "HX711.h"
+
+#define PIN               6
+#define NUMPIXELS        94
+#define DOUT              3
+#define CLK               2
+#define CALIBRATION_FACTOR  -205.0
+#define TARGET_WEIGHT_G   272.155
+#define TOLERANCE_G         5.0
+
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+HX711 scale;
+
+void setup() {
+  scale.begin(DOUT, CLK);
+  scale.set_scale(CALIBRATION_FACTOR);
+  scale.tare();
+  pixels.begin();
+  pixels.clear();
+  pixels.show();
+}
+
+void loop() {
+  float weightG = scale.get_units(3);  // average 3 readings
+  if (weightG &lt; 0) weightG = 0;
+
+  uint32_t color;
+  if      (weightG &gt; TARGET_WEIGHT_G + TOLERANCE_G) color = pixels.Color(255, 0, 0);    // Red
+  else if (weightG &gt;= TARGET_WEIGHT_G - TOLERANCE_G) color = pixels.Color(0, 255, 0);   // Green
+  else                                                color = pixels.Color(255, 150, 0); // Yellow
+
+  // Fill arc proportional to weight
+  int numLit = (int)((weightG / TARGET_WEIGHT_G) * NUMPIXELS);
+  if (numLit &gt; NUMPIXELS) numLit = NUMPIXELS;
+
+  pixels.clear();
+  for (int i = 0; i &lt; numLit; i++) pixels.setPixelColor(i, color);
+  pixels.show();
+  delay(200);
+}</code></pre>
+          </details>
+          <p>Calibration was determined through systematic trial and error using known reference weights (my phone, then a friend's phone to verify independently). The final calibration factor of <code>-205.0</code> accurately converted the load cell's raw torque readings into grams across multiple test weights.</p>
+          <p>Scale calibration test using a known reference weight. The NeoPixel ring fills progressively as weight approaches the target, shifting from yellow to green when within ±5 g.</p>
+        </div>
+        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/etPjCf0tMe0" allowfullscreen frameborder="0"></iframe></div>
+      </div>
+    </section>
+
+    <!-- Enclosure -->
+    <section id="enclosure" class="proj-section">
+      <p class="proj-label">Enclosure V1</p>
+
+      <h3>CAD Design</h3>
+      <p>I designed the central electronics enclosure in Onshape to house the Arduino Giga, tactile navigation buttons, scale, power supply, buck converter, and protoboard. Key design decisions:</p>
+      <ul class="proj-list">
+        <li><strong>45° screen angle</strong>, optimizing visibility from above, reducing strain for seated users</li>
+        <li><strong>Flanking button placement</strong>, with mechanical keyboard switches on either side of the screen for easy forward/back navigation</li>
+        <li><strong>Rocker switch cutout</strong>, a circular aperture on the left side panel for power control</li>
+        <li><strong>Rear cable entry + ventilation</strong>, with a circular power aperture and cutout slots for airflow</li>
+        <li><strong>Interlocking finger joints</strong>, laser-cut walls that slot together like puzzle pieces, reinforced with wood glue for structural rigidity</li>
+        <li><strong>3D printed scale ring</strong> that raises the scale to the correct height while routing wires underneath through designated slots</li>
+      </ul>
+
+      <div class="proj-img-trio reveal">
+        <div class="proj-img">
+          <img src="assets/projects/measurely/v1_cad_prototype_front.png" alt="Enclosure V1 CAD, front isometric">
+        </div>
+        <div class="proj-img">
+          <img src="assets/projects/measurely/v1_prototype_back.png" alt="Enclosure V1 CAD, rear view">
+        </div>
+        <div class="proj-img full-width">
+          <img src="assets/projects/measurely/v1_prototype_side.png" alt="Enclosure V1 CAD, side view">
+        </div>
+      </div>
+
+      <h3>Laser Cutting and Assembly</h3>
+      <div class="proj-video-aside reveal">
+        <p>The first laser cut failed due to an out-of-focus laser; I discarded the material, switched machines, and the second attempt produced clean cuts. Assembly was straightforward using wood glue on the interlocking joints, and the rocker switch seated perfectly, validating my tolerance calculations before the Arduino had even arrived for test-fitting.</p>
+        <div class="aside-media">
+          <img src="assets/projects/measurely/prototype_enclosure_assembled.jpg" alt="Prototype enclosure assembled">
+        </div>
+      </div>
+
+      <h3>Button Supports and Final Integration</h3>
+      <p>I designed and 3D printed custom support brackets for the keyboard switch boards. The first iteration was too tall, leaving the switch mechanism visible below the keycap. I also trimmed the protoboards to fit the enclosure's spacing, updated the CAD, and printed a second iteration with correct dimensions. The final result was flush-mounted, satisfying tactile buttons.</p>
+      <div class="proj-thirds reveal">
+        <img src="assets/projects/measurely/tacile_buttons_on_breadboard.jpg" alt="Tactile keyboard switches on breadboard with Arduino Giga">
+        <img src="assets/projects/measurely/final_integration_front_with_wiring.jpg" alt="Integrated prototype, front open showing wiring">
+        <img src="assets/projects/measurely/final_integration_back_open_wiring.jpg" alt="Integrated prototype, back open showing wiring">
+      </div>
+
+      <h3>Final Pin Map</h3>
+      <p>All pins were tested per subsystem then reassigned to eliminate conflicts. Assignments follow physical layout inside the enclosure so adjacent pins correspond to nearby components, minimizing wire length and crossovers.</p>
+
+      <table class="pin-table">
+        <thead>
+          <tr><th>Variable</th><th>Pin</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Back button</td><td>12</td></tr>
+          <tr><td>Front button</td><td>13</td></tr>
+          <tr><td>Scale clock (HX711)</td><td>31</td></tr>
+          <tr><td>Scale data (HX711)</td><td>29</td></tr>
+          <tr><td>NeoPixel lights</td><td>27</td></tr>
+          <tr><td>Linear actuator PWMA</td><td>4</td></tr>
+          <tr><td>Linear actuator AI1</td><td>5</td></tr>
+          <tr><td>Linear actuator AI2</td><td>6</td></tr>
+          <tr><td>Linear actuator STBY</td><td>7</td></tr>
+          <tr><td>DC motor</td><td>8</td></tr>
+          <tr><td>Stepper step</td><td>23</td></tr>
+          <tr><td>Stepper dir</td><td>25</td></tr>
+          <tr><td>Universal key contact</td><td>3</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+
+    <!-- Final Product -->
+    <section id="final" class="proj-section">
+      <p class="proj-label">Final Product</p>
+
+      <div class="proj-thirds reveal">
+        <img src="assets/projects/measurely/solution.jpg" alt="Measurely final product">
+        <img src="assets/projects/measurely/solution2.jpg" alt="Measurely final product 2">
+        <img src="assets/projects/measurely/solution3.png" alt="Measurely final product 3">
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Sophie Luu</span>
+    <span>© 2026</span>
+  </footer>
+
+  <div id="contact-overlay">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120.62 178.68" aria-hidden="true">
+      <defs><style>.cls-3-ov{fill:none;stroke:var(--ink);stroke-miterlimit:10;stroke-width:10px}</style></defs>
+      <image width="259" height="531" transform="translate(31.97 20.97) scale(.24)" xlink:href="data:image/png;base64,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"/>
+      <path class="cls-3-ov" d="M83.3,8.03c12.15,4.72,29.02,16.2,30.37,31.72.67,13.5-12.15,17.54-12.15,34.41,0,12.82,8.1,16.2,12.15,29.69,5.4,18.89,0,47.91-20.92,62.08-22.94,15.52-51.96,3.37-58.03.67-8.77-4.05-24.29-10.8-27.67-24.29-4.05-15.52,13.5-22.94,12.82-43.86-.67-17.54-13.5-19.57-14.85-37.79-.67-18.89,13.5-36.44,26.32-45.21,3.37-1.35,26.32-16.87,51.96-7.42Z"/>
+    </svg>
+  </div>
+
+  <script src="assets/main.js"></script>
+  <script>
+    const tlSections = document.querySelectorAll('.proj-section[id]');
+    const tlDots     = Array.from(document.querySelectorAll('.tl-dot'));
+    const tlTrack    = document.querySelector('.timeline-track');
+
+    function updateTimeline(activeId) {
+      const activeIndex = tlDots.findIndex(d => d.getAttribute('href') === '#' + activeId);
+      tlDots.forEach((dot, i) => {
+        dot.classList.remove('active', 'past');
+        if (i === activeIndex) dot.classList.add('active');
+        else if (i < activeIndex) dot.classList.add('past');
+      });
+      if (activeIndex >= 0 && tlTrack) {
+        const active = tlDots[activeIndex];
+        const endY   = active.offsetTop + active.offsetHeight / 2;
+        tlTrack.style.setProperty('--fill-top', '8px');
+        tlTrack.style.setProperty('--fill-h',   Math.max(0, endY - 8) + 'px');
+      }
+    }
+
+    function syncTimeline() {
+      const triggerY = window.scrollY + window.innerHeight * 0.4;
+      let current = tlSections[0];
+      tlSections.forEach(s => { if (s.offsetTop <= triggerY) current = s; });
+      updateTimeline(current.id);
+    }
+
+    window.addEventListener('scroll', syncTimeline, { passive: true });
+    syncTimeline();
+  </script>
+</body>
+</html>

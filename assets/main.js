@@ -32,7 +32,7 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(e.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 /* ── Nav transition overlay ── */
