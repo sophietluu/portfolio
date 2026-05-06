@@ -168,7 +168,7 @@ body {
 .overview-img img {
   width: 100%; height: auto; display: block;
   border-radius: 2px;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   position: sticky; top: 100px;
 }
 @media (max-width: 720px) {
@@ -237,7 +237,7 @@ body {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   border-radius: 2px;
   display: block;
 }
@@ -262,7 +262,7 @@ body {
   height: auto;
   max-height: none;
   display: block;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   border-radius: 2px;
 }
 .proj-img-trio .proj-img.full-width {
@@ -286,7 +286,7 @@ body {
   display: block;
   margin: 0 auto;
   object-fit: unset;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
 }
 .proj-img-caption {
   font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
@@ -394,7 +394,7 @@ body {
 /* ── Scrollable PDF viewer ── */
 .pdf-viewer {
   margin: 1.5rem 0;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -533,7 +533,7 @@ body {
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   border-radius: 2px;
   display: block;
   width: 100%;
@@ -554,7 +554,7 @@ body {
   order: 2;
   width: 100%;
   aspect-ratio: 3 / 4;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   border-radius: 2px;
   display: block;
 }
@@ -578,7 +578,7 @@ body {
   min-width: 0;
   max-width: 100%;
   aspect-ratio: 3 / 4;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   border-radius: 2px;
   display: block;
 }
@@ -586,7 +586,7 @@ body {
 .proj-video-aside > .aside-media img {
   object-fit: cover;
   object-position: center;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--ink);
   border-radius: 2px;
   display: block;
 }
