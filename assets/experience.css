@@ -126,6 +126,7 @@ body {
 /* ── Honors ── */
 .honors-block { padding: 1rem 0 0; }
 .honors-text { font-size: 0.875rem; color: var(--soft); line-height: 2; }
+.honors-school { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); }
 
 /* ── Resume download ── */
 .resume-download-wrap {
