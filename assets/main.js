@@ -37,7 +37,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 /* ── Nav transition overlay ── */
 const overlay    = document.getElementById('contact-overlay');
-const overlayPath = overlay ? overlay.querySelector('.cls-3-ov') : null;
+const overlayPath = overlay ? overlay.querySelector('.cls-1-ov') : null;
 let overlayLen   = null;
 
 document.querySelectorAll('nav a, a.nav-transition').forEach(link => {
