@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <meta name="description" content="Measurely — a project by Sophie Luu.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/shared.css">
-  <link rel="stylesheet" href="assets/project.css">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <link rel="stylesheet" href="../assets/project.css">
   <style>
     .img-placeholder {
       aspect-ratio: 4 / 3;
@@ -57,8 +57,8 @@
 </svg></a>
     <ul class="nav-links">
       <li><a href="/#about">About</a></li>
-      <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="experience.html">Experience</a></li>
+      <li><a href="/portfolio" class="active">Portfolio</a></li>
+      <li><a href="/experience">Experience</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
@@ -69,7 +69,7 @@
 
   <!-- Project Hero -->
   <header class="project-hero">
-    <a href="portfolio.html" class="project-back">
+    <a href="/portfolio" class="project-back">
       <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M6 1L1 5l5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Portfolio
     </a>
@@ -129,7 +129,7 @@
           </ul>
         </div>
         <div class="aside-media">
-          <img src="assets/projects/measurely/solution.jpg" alt="Measurely final product">
+          <img src="../assets/projects/measurely/solution.jpg" alt="Measurely final product">
         </div>
       </div>
     </section>
@@ -156,10 +156,10 @@
 
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/measurely/measurely-dispenser-enclosure-cad-v2.png" alt="Dispenser enclosure CAD, revised fit">
+          <img src="../assets/projects/measurely/measurely-dispenser-enclosure-cad-v2.png" alt="Dispenser enclosure CAD, revised fit">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/measurely/measurely-dispenser-enclosure-v2.png" alt="Revised dispenser enclosure assembled">
+          <img src="../assets/projects/measurely/measurely-dispenser-enclosure-v2.png" alt="Revised dispenser enclosure assembled">
         </div>
       </div>
 
@@ -210,10 +210,10 @@ void dispense_tsp(float tsp) {
 
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/measurely/universal_key_sketches.jpg" alt="Dog clutch brainstorm sketches">
+          <img src="../assets/projects/measurely/universal_key_sketches.jpg" alt="Dog clutch brainstorm sketches">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/measurely/measurely-key-slipring-assembly.jpg" alt="Slip ring, rod, and dog clutch assembly">
+          <img src="../assets/projects/measurely/measurely-key-slipring-assembly.jpg" alt="Slip ring, rod, and dog clutch assembly">
         </div>
       </div>
 
@@ -221,10 +221,10 @@ void dispense_tsp(float tsp) {
 
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/measurely/universal_key_iterations.jpg" alt="Universal key printed iterations">
+          <img src="../assets/projects/measurely/universal_key_iterations.jpg" alt="Universal key printed iterations">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/measurely/universal_key_measurement_results.jpg" alt="Universal key test-fit into slot">
+          <img src="../assets/projects/measurely/universal_key_measurement_results.jpg" alt="Universal key test-fit into slot">
         </div>
       </div>
 
@@ -271,7 +271,7 @@ void loop() {
           </ul>
           <p>Tolerances were 0.005 in. Even printing the same file multiple times produced small inconsistencies, so I printed three copies and test-fit each to find the best match.</p>
         </div>
-        <img src="assets/projects/measurely/universal_key_cad.png" alt="Universal key CAD model">
+        <img src="../assets/projects/measurely/universal_key_cad.png" alt="Universal key CAD model">
       </div>
 
       <div class="proj-video-aside reveal">
@@ -380,7 +380,7 @@ void loop() {
           <p>The scale uses a <strong>5 kg HX711 load cell</strong>. To convert torque into weight accurately, I designed thin spacers using calipers-measured M4 and M5 hardware. The surface is a <strong>three-layer acrylic stack</strong>. The first layer mounts the load cell, the second spaces the screw head from the shank, and the third (slightly translucent) serves as the decorative top surface and diffuses the LED light evenly. The diameter is 7 inches, with the top plate extending 0.2 inches larger to accommodate the NeoPixel strip underneath.</p>
           <p>One challenge was the gray metal screw was visible through the translucent top plate. I tried opaque tape, paper inserts, and surface sanding, all of which looked unprofessional. The fix was painting the screw white; the top layer's light-diffusing properties blurred the slight texture irregularities from the paint, producing a clean result.</p>
         </div>
-        <img src="assets/projects/measurely/scale_white_lights_prototype.jpg" alt="Scale with LED strip installed">
+        <img src="../assets/projects/measurely/scale_white_lights_prototype.jpg" alt="Scale with LED strip installed">
       </div>
 
       <h3>NeoPixel Feedback</h3>
@@ -455,13 +455,13 @@ void loop() {
 
       <div class="proj-img-trio reveal">
         <div class="proj-img">
-          <img src="assets/projects/measurely/v1_cad_prototype_front.png" alt="Enclosure V1 CAD, front isometric">
+          <img src="../assets/projects/measurely/v1_cad_prototype_front.png" alt="Enclosure V1 CAD, front isometric">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/measurely/v1_prototype_back.png" alt="Enclosure V1 CAD, rear view">
+          <img src="../assets/projects/measurely/v1_prototype_back.png" alt="Enclosure V1 CAD, rear view">
         </div>
         <div class="proj-img full-width">
-          <img src="assets/projects/measurely/v1_prototype_side.png" alt="Enclosure V1 CAD, side view">
+          <img src="../assets/projects/measurely/v1_prototype_side.png" alt="Enclosure V1 CAD, side view">
         </div>
       </div>
 
@@ -469,16 +469,16 @@ void loop() {
       <div class="proj-video-aside reveal">
         <p>The first laser cut failed due to an out-of-focus laser; I discarded the material, switched machines, and the second attempt produced clean cuts. Assembly was straightforward using wood glue on the interlocking joints, and the rocker switch seated perfectly, validating my tolerance calculations before the Arduino had even arrived for test-fitting.</p>
         <div class="aside-media">
-          <img src="assets/projects/measurely/prototype_enclosure_assembled.jpg" alt="Prototype enclosure assembled">
+          <img src="../assets/projects/measurely/prototype_enclosure_assembled.jpg" alt="Prototype enclosure assembled">
         </div>
       </div>
 
       <h3>Button Supports and Final Integration</h3>
       <p>I designed and 3D printed custom support brackets for the keyboard switch boards. The first iteration was too tall, leaving the switch mechanism visible below the keycap. I also trimmed the protoboards to fit the enclosure's spacing, updated the CAD, and printed a second iteration with correct dimensions. The final result was flush-mounted, satisfying tactile buttons.</p>
       <div class="proj-thirds reveal">
-        <img src="assets/projects/measurely/tacile_buttons_on_breadboard.jpg" alt="Tactile keyboard switches on breadboard with Arduino Giga">
-        <img src="assets/projects/measurely/final_integration_front_with_wiring.jpg" alt="Integrated prototype, front open showing wiring">
-        <img src="assets/projects/measurely/final_integration_back_open_wiring.jpg" alt="Integrated prototype, back open showing wiring">
+        <img src="../assets/projects/measurely/tacile_buttons_on_breadboard.jpg" alt="Tactile keyboard switches on breadboard with Arduino Giga">
+        <img src="../assets/projects/measurely/final_integration_front_with_wiring.jpg" alt="Integrated prototype, front open showing wiring">
+        <img src="../assets/projects/measurely/final_integration_back_open_wiring.jpg" alt="Integrated prototype, back open showing wiring">
       </div>
 
       <h3>Final Pin Map</h3>
@@ -513,9 +513,9 @@ void loop() {
       <p class="proj-label">Final Product</p>
 
       <div class="proj-thirds reveal">
-        <img src="assets/projects/measurely/solution.jpg" alt="Measurely final product">
-        <img src="assets/projects/measurely/solution2.jpg" alt="Measurely final product 2">
-        <img src="assets/projects/measurely/solution3.png" alt="Measurely final product 3">
+        <img src="../assets/projects/measurely/solution.jpg" alt="Measurely final product">
+        <img src="../assets/projects/measurely/solution2.jpg" alt="Measurely final product 2">
+        <img src="../assets/projects/measurely/solution3.png" alt="Measurely final product 3">
       </div>
     </section>
 
@@ -534,7 +534,7 @@ void loop() {
     </svg>
   </div>
 
-  <script src="assets/main.js"></script>
+  <script src="../assets/main.js"></script>
   <script>
     const tlSections = document.querySelectorAll('.proj-section[id]');
     const tlDots     = Array.from(document.querySelectorAll('.tl-dot'));

@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <meta name="description" content="Microgreen — a project by Sophie Luu.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/shared.css">
-  <link rel="stylesheet" href="assets/project.css">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <link rel="stylesheet" href="../assets/project.css">
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
@@ -22,8 +22,8 @@
 </svg></a>
     <ul class="nav-links">
       <li><a href="/#about">About</a></li>
-      <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="experience.html">Experience</a></li>
+      <li><a href="/portfolio" class="active">Portfolio</a></li>
+      <li><a href="/experience">Experience</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
@@ -34,7 +34,7 @@
 
   <!-- ── Project Hero ── -->
   <header class="project-hero">
-    <a href="portfolio.html" class="project-back">
+    <a href="/portfolio" class="project-back">
       <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M6 1L1 5l5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Portfolio
     </a>
@@ -92,7 +92,7 @@
           <p>The Microgreen Grow Cabinet converts salvaged office furniture into an automated growing system powered by basic electronics, operating on voltages compatible with solar panels and batteries. It produces nutrient-dense food year-round without external agricultural infrastructure, addressing food security under resource constraints.</p>
         </div>
         <div class="overview-img">
-          <img src="assets/projects/microgreen/final_product.jpeg" alt="Microgreen Grow Cabinet final product">
+          <img src="../assets/projects/microgreen/final_product.jpeg" alt="Microgreen Grow Cabinet final product">
         </div>
       </div>
     </section>
@@ -105,10 +105,10 @@
 
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/microgreen/org_diagram.png" alt="System organization diagram">
+          <img src="../assets/projects/microgreen/org_diagram.png" alt="System organization diagram">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/microgreen/circuit_diagram.JPG" alt="Circuit diagram">
+          <img src="../assets/projects/microgreen/circuit_diagram.JPG" alt="Circuit diagram">
         </div>
       </div>
 
@@ -366,7 +366,7 @@ void loop() {
     </svg>
   </div>
 
-  <script src="assets/main.js"></script>
+  <script src="../assets/main.js"></script>
   <script>
     /* ── Timeline section observer ── */
     const tlSections = document.querySelectorAll('.proj-section[id]');

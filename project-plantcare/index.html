@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <meta name="description" content="Plant Care — a project by Sophie Luu.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/shared.css">
-  <link rel="stylesheet" href="assets/project.css">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <link rel="stylesheet" href="../assets/project.css">
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
@@ -22,8 +22,8 @@
 </svg></a>
     <ul class="nav-links">
       <li><a href="/#about">About</a></li>
-      <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="experience.html">Experience</a></li>
+      <li><a href="/portfolio" class="active">Portfolio</a></li>
+      <li><a href="/experience">Experience</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
@@ -34,7 +34,7 @@
 
   <!-- ── Project Hero ── -->
   <header class="project-hero">
-    <a href="portfolio.html" class="project-back">
+    <a href="/portfolio" class="project-back">
       <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M6 1L1 5l5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Portfolio
     </a>
@@ -132,7 +132,7 @@
       <p>Although I primarily followed this circuit diagram, I made a few minor changes during assembly for ease of construction.</p>
 
       <div class="proj-img reveal">
-        <img src="assets/projects/plantcare/circuit_diagram.png" alt="Plant care circuit diagram">
+        <img src="../assets/projects/plantcare/circuit_diagram.png" alt="Plant care circuit diagram">
       </div>
 
       <h3>Process</h3>
@@ -300,19 +300,19 @@ void activateSolenoidValve(SolenoidValve&amp; valve, bool&amp; valveActive) {
 
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/plantcare/CAD1.png" alt="Plant care enclosure CAD model view 1">
+          <img src="../assets/projects/plantcare/CAD1.png" alt="Plant care enclosure CAD model view 1">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/plantcare/CAD2.png" alt="Plant care enclosure CAD model view 2">
+          <img src="../assets/projects/plantcare/CAD2.png" alt="Plant care enclosure CAD model view 2">
         </div>
       </div>
 
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/plantcare/wiring_1.jpg" alt="Wiring detail 1">
+          <img src="../assets/projects/plantcare/wiring_1.jpg" alt="Wiring detail 1">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/plantcare/wiring2.jpg" alt="Wiring detail 2">
+          <img src="../assets/projects/plantcare/wiring2.jpg" alt="Wiring detail 2">
         </div>
       </div>
     </section>
@@ -324,16 +324,16 @@ void activateSolenoidValve(SolenoidValve&amp; valve, bool&amp; valveActive) {
       <div class="proj-img-pair reveal">
         <div class="proj-img">
           <p class="proj-img-caption">Original Prototype</p>
-          <video src="assets/projects/plantcare/OriginalVid.mov" controls playsinline></video>
+          <video src="../assets/projects/plantcare/OriginalVid.mov" controls playsinline></video>
         </div>
         <div class="proj-img">
           <p class="proj-img-caption">Final Product</p>
-          <video src="assets/projects/plantcare/final_vid.mov" controls playsinline></video>
+          <video src="../assets/projects/plantcare/final_vid.mov" controls playsinline></video>
         </div>
       </div>
 
       <div class="proj-img reveal">
-        <img src="assets/projects/plantcare/final_product.jpg" alt="Automated plant care system final product">
+        <img src="../assets/projects/plantcare/final_product.jpg" alt="Automated plant care system final product">
       </div>
     </section>
 
@@ -352,7 +352,7 @@ void activateSolenoidValve(SolenoidValve&amp; valve, bool&amp; valveActive) {
     </svg>
   </div>
 
-  <script src="assets/main.js"></script>
+  <script src="../assets/main.js"></script>
   <script>
     const tlSections = document.querySelectorAll('.proj-section[id]');
     const tlDots     = Array.from(document.querySelectorAll('.tl-dot'));

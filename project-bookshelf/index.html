@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sophie Luu | Ceramic Chessboard Table</title>
+  <title>Sophie Luu | Slotted Bookshelf</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <meta name="description" content="Chessboard — a project by Sophie Luu.">
+  <meta name="description" content="Bookshelf — a project by Sophie Luu.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/shared.css">
-  <link rel="stylesheet" href="assets/project.css">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <link rel="stylesheet" href="../assets/project.css">
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
@@ -22,8 +22,8 @@
 </svg></a>
     <ul class="nav-links">
       <li><a href="/#about">About</a></li>
-      <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="experience.html">Experience</a></li>
+      <li><a href="/portfolio" class="active">Portfolio</a></li>
+      <li><a href="/experience">Experience</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
@@ -34,24 +34,24 @@
 
   <!-- ── Project Hero ── -->
   <header class="project-hero">
-    <a href="portfolio.html" class="project-back">
+    <a href="/portfolio" class="project-back">
       <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M6 1L1 5l5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Portfolio
     </a>
-    <p class="project-eyebrow">Design &amp; Engineering · 01</p>
-    <h1 class="project-title">Ceramic<br>Chessboard<br>Table</h1>
+    <p class="project-eyebrow">Design &amp; Engineering · 05</p>
+    <h1 class="project-title">Slotted<br>Bookshelf</h1>
     <div class="project-meta">
       <div class="meta-col">
         <span class="meta-key">Year</span>
-        <span class="meta-val">2025</span>
+        <span class="meta-val">2023</span>
       </div>
       <div class="meta-col">
         <span class="meta-key">My Role</span>
-        <span class="meta-val">Solo: Concept, CAD, Fabrication</span>
+        <span class="meta-val">Solo: Concept, CAD, Fabrication, Documentation</span>
       </div>
       <div class="meta-col">
         <span class="meta-key">Tools</span>
-        <span class="meta-val">CAD · Laser Cutter · Ceramics</span>
+        <span class="meta-val">CAD · Laser Cutter · Technical Drawing</span>
       </div>
     </div>
     <div class="project-hero-tags">
@@ -64,71 +64,114 @@
   <!-- ── Timeline nav ── -->
   <aside class="timeline-nav" aria-label="Project sections">
     <div class="timeline-track">
-      <a class="tl-dot active" href="#overview"    data-label="Overview"></a>
-      <a class="tl-dot"        href="#process"     data-label="Process"></a>
-      <a class="tl-dot"        href="#reflection"  data-label="Reflection"></a>
+      <a class="tl-dot active" href="#overview"       data-label="Overview"></a>
+      <a class="tl-dot"        href="#sketches"       data-label="Sketches"></a>
+      <a class="tl-dot"        href="#orthographic"   data-label="Orthographic"></a>
+      <a class="tl-dot"        href="#perspective"    data-label="Perspective"></a>
+      <a class="tl-dot"        href="#photos"         data-label="Photos"></a>
+      <a class="tl-dot"        href="#instructions"   data-label="Instructions"></a>
+      <a class="tl-dot"        href="#downloads"      data-label="Downloads"></a>
     </div>
   </aside>
 
   <!-- ── Main content ── -->
   <main class="project-content">
 
-    <!-- Overview / Inspiration -->
+    <!-- Overview -->
     <section id="overview" class="proj-section reveal">
       <p class="proj-label">Overview</p>
 
       <div class="overview-grid">
         <div class="overview-text">
-          <h3>Inspiration</h3>
-          <p>Moving from California to Colorado for school created a recurring problem: traditional furniture becomes a burden during relocations, often damaged in transit or abandoned for something new at the next destination. This impermanence created emotional distance from my possessions; I hesitated to invest in pieces I'd eventually leave behind.</p>
-          <p>I wanted to design furniture that could move with me without compromise, challenging the false choice between beautiful and practical furniture.</p>
+          <p>Build a shelf that can be easily assembled without the use of any adhesives, nails, screws, clips, or other fasteners, with a minimum holding weight of 200 lbs. This simple bookshelf accomplishes all that and more with an easy-to-follow instruction manual.</p>
+          <p>The final design holds over 300 lbs, enough for both you and your books. All pieces slot together using precisely cut joints, making the shelf fully tool-free to assemble and disassemble.</p>
         </div>
         <div class="overview-img">
-          <img src="assets/projects/chessboard/final_product.png" alt="Ceramic Chessboard Side Table final product">
+          <img src="../assets/projects/bookshelf/final_product.JPG" alt="Slotted Bookshelf final product">
         </div>
       </div>
     </section>
 
-    <!-- Process & Solution -->
-    <section id="process" class="proj-section reveal">
-      <p class="proj-label">Process &amp; Solution</p>
-
-      <p>I designed this multipurpose side table using laser-cut slot-together geometry that enables tool-free assembly and disassembly. Starting in CAD, I developed the interlocking joint system so the entire piece could flat-pack for transport while maintaining structural stability during use.</p>
-      <p>I designed the surface pattern as a ceramic-inspired chessboard that functions both decoratively and as a playable game board. To maximize utility, I integrated magazine and book storage into the structure and added side hooks for bags.</p>
-      <p>After prototyping and validating the joint tolerances, I fabricated all components and assembled the final piece, creating furniture that combines aesthetic appeal with genuine functionality, and most importantly, can travel with me wherever life takes me next.</p>
-
+    <!-- Sketches & References -->
+    <section id="sketches" class="proj-section reveal">
+      <p class="proj-label">Sketches &amp; References</p>
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/chessboard/process_1.JPG" alt="Fabrication process step 1">
+          <img src="../assets/projects/bookshelf/Final Project Documentation1.jpg" alt="Sketches and references page 1">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/chessboard/process_2.JPG" alt="Fabrication process step 2">
+          <img src="../assets/projects/bookshelf/Final Project Documentation2.jpg" alt="Sketches and references page 2">
         </div>
       </div>
+    </section>
 
+    <!-- Orthographic Views -->
+    <section id="orthographic" class="proj-section reveal">
+      <p class="proj-label">Orthographic Views</p>
+      <div class="proj-img reveal">
+        <img src="../assets/projects/bookshelf/Final Project Documentation3.jpg" alt="Orthographic view page 1">
+      </div>
       <div class="proj-img-pair reveal">
         <div class="proj-img">
-          <img src="assets/projects/chessboard/staged_side_angle.JPG" alt="Chessboard table staged, side angle">
+          <img src="../assets/projects/bookshelf/Final Project Documentation4.jpg" alt="Orthographic view page 2">
         </div>
         <div class="proj-img">
-          <img src="assets/projects/chessboard/stages_top_angle.JPG" alt="Chessboard table staged, top angle">
+          <img src="../assets/projects/bookshelf/Final Project Documentation5.jpg" alt="Orthographic view page 3">
         </div>
       </div>
+    </section>
 
+    <!-- Perspective Views -->
+    <section id="perspective" class="proj-section reveal">
+      <p class="proj-label">Perspective Views</p>
+      <div class="proj-img-pair reveal">
+        <div class="proj-img">
+          <img src="../assets/projects/bookshelf/Final Project Documentation6.jpg" alt="Perspective view page 1">
+        </div>
+        <div class="proj-img">
+          <img src="../assets/projects/bookshelf/Final Project Documentation7.jpg" alt="Perspective view page 2">
+        </div>
+      </div>
+    </section>
+
+    <!-- Photos -->
+    <section id="photos" class="proj-section reveal">
+      <p class="proj-label">Photos</p>
+      <div class="proj-img-pair reveal">
+        <div class="proj-img">
+          <img src="../assets/projects/bookshelf/Final Project Documentation8.jpg" alt="Photo page 1">
+        </div>
+        <div class="proj-img">
+          <img src="../assets/projects/bookshelf/Final Project Documentation9.jpg" alt="Photo page 2">
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructions -->
+    <section id="instructions" class="proj-section reveal">
+      <p class="proj-label">Instructions</p>
+      <div class="pdf-viewer">
+        <iframe
+          src="../assets/projects/bookshelf/Bookshelf Instructions.pdf"
+          title="Slotted Bookshelf Instructions"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section id="downloads" class="proj-section reveal">
+      <p class="proj-label">Downloads</p>
       <div class="resources-row">
-        <a href="assets/projects/chessboard/Sophie Luu - Chessboard.stl" download="Sophie Luu - Chessboard.stl" class="resource-link">
+        <a href="../assets/projects/bookshelf/Bookshelf Instructions.pdf" download="Bookshelf Instructions.pdf" class="resource-link">
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Download STL File
+          Bookshelf Instructions
+        </a>
+        <a href="../assets/projects/bookshelf/Final Project Documentation.pdf" download="Final Project Documentation.pdf" class="resource-link">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Final Documentation
         </a>
       </div>
-    </section>
-
-    <!-- Reflection -->
-    <section id="reflection" class="proj-section reveal">
-      <p class="proj-label">Reflection</p>
-
-      <p>This project taught me that the best design solutions emerge from personal pain points. By designing for my own need as a transient student, I created something that addresses a broader problem many young people face.</p>
-      <p>The flat-pack approach demonstrates how constraints (in this case, frequent moves) can drive innovation rather than limit it. Most importantly, this project reinforced that furniture doesn't have to choose between form and function; thoughtful design can deliver both beauty and utility without compromise.</p>
     </section>
 
   </main>
@@ -146,9 +189,8 @@
     </svg>
   </div>
 
-  <script src="assets/main.js"></script>
+  <script src="../assets/main.js"></script>
   <script>
-    /* ── Timeline section observer ── */
     const tlSections = document.querySelectorAll('.proj-section[id]');
     const tlDots     = Array.from(document.querySelectorAll('.tl-dot'));
     const tlTrack    = document.querySelector('.timeline-track');
