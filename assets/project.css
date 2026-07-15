@@ -3,7 +3,7 @@
    ══════════════════════════════════════════ */
 
 body {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.7;
   letter-spacing: 0.02em;
@@ -33,7 +33,7 @@ body {
   opacity: 0; animation: fadeUp 0.9s 0.2s forwards;
 }
 .project-title {
-  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(3rem, 8vw, 7rem); line-height: 1.05;
   color: var(--ink); margin: 0.75rem 0 0.4rem;
   opacity: 0; animation: fadeUp 1s 0.35s forwards;
@@ -146,14 +146,14 @@ body {
   transform: scale(1.35);
 }
 .tl-dot.active::after { opacity: 1; color: var(--ink); }
-@media (max-width: 600px) { .timeline-nav { display: none; } }
+@media (max-width: 850px) { .timeline-nav { display: none; } }
 
 /* ── Project content ── */
 .project-content {
   padding: 1.5rem clamp(1.5rem, 6vw, 5rem) var(--gap);
 }
-@media (min-width: 601px) {
-  .project-content { padding-right: clamp(160px, 14vw, 220px); }
+@media (min-width: 851px) {
+  .project-content { padding-right: clamp(145px, 11vw, 170px); }
 }
 
 /* ── Overview two-column layout ── */
@@ -165,7 +165,7 @@ body {
   margin-bottom: 2rem;
 }
 .overview-text h3 { margin-top: 0; }
-.overview-img img {
+.overview-img img, .overview-img video {
   width: 100%; height: auto; display: block;
   border-radius: 2px;
   border: 2px solid var(--ink);
@@ -173,7 +173,7 @@ body {
 }
 @media (max-width: 720px) {
   .overview-grid { grid-template-columns: 1fr; }
-  .overview-img img { position: static; }
+  .overview-img img, .overview-img video { position: static; }
 }
 
 .proj-section {
@@ -193,7 +193,7 @@ body {
 }
 
 .proj-section h3 {
-  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   color: var(--ink); margin: 2.5rem 0 1rem;
 }
@@ -210,6 +210,14 @@ body {
 @media (max-width: 600px) {
   .proj-img-pair { grid-template-columns: 1fr; }
 }
+
+/* ── Final media: video beside photo, uneven widths ── */
+.proj-final-stack {
+  display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+.proj-final-stack .proj-img { margin: 0; width: auto; max-width: 100%; }
 
 /* ── Equal thirds: text | video | video ── */
 .proj-thirds {
@@ -294,7 +302,7 @@ body {
 }
 
 .proj-img-placeholder-text {
-  font-family: var(--font-display); font-style: italic;
+  font-family: var(--font-display); font-weight: 400;
   font-size: 1.25rem; color: var(--beige); opacity: 0.5; user-select: none;
 }
 

@@ -1,28 +1,30 @@
 @font-face {
-  font-family: 'Figtree';
-  src: url('../fonts/Figtree-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
+  font-family: 'Shinjo-Regular';
+  src: url('../fonts/shinjo-regular.woff2') format('woff2'),
+       url('../fonts/shinjo-regular.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Figtree';
-  src: url('../fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
+  /*
+  Font:    Atkinson Hyperlegible Next
+  Foundry: Applied Design Works / Braille Institute of America
+  License: SIL Open Font License 1.1 — https://openfontlicense.org
+  Source:  https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next
+  */
+  font-family: 'Atkinson Hyperlegible Next';
+  src: url('../fonts/AtkinsonHyperlegibleNext-Variable.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Gaya';
-  src: url('../fonts/gayatrial-regular.otf') format('opentype');
-  font-weight: 300 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Gaya';
-  src: url('../fonts/gayatrial-italic.otf') format('opentype');
-  font-weight: 300 400;
+  font-family: 'Atkinson Hyperlegible Next';
+  src: url('../fonts/AtkinsonHyperlegibleNext-Italic-Variable.woff2') format('woff2');
+  font-weight: 200 800;
   font-style: italic;
+  font-display: swap;
 }
 
 :root {
@@ -32,11 +34,13 @@
   --primary:      #64606B;
   --rose:         #D0BCB9;
   --sage:         #B1B784;
+  --sage-ondark:  #C7CC9E;
   --ink:          #55505C;
-  --soft:         #64606B;
+  --soft:         #5C5862;
+  --plum:         #4B4652;
   --taupe:        #D0BCB9;
-  --font-display: 'Gaya', serif;
-  --font-body:    'Figtree', sans-serif;
+  --font-display: 'Shinjo-Regular', sans-serif;
+  --font-body:    'Atkinson Hyperlegible Next', sans-serif;
   --gap:          clamp(4rem, 10vw, 9rem);
 }
 
@@ -79,7 +83,7 @@ nav.scrolled { background: var(--sand); }
 .nav-logo-img:hover { opacity: 0.7; }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
-  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--soft); text-decoration: none; transition: color 0.25s;
   position: relative;
 }
@@ -140,8 +144,8 @@ footer {
   padding: 2rem clamp(1.5rem, 6vw, 5rem);
   display: flex; justify-content: space-between; align-items: center;
   border-top: 1px solid rgba(255,255,255,0.06);
-  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--sage);
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--sage-ondark);
 }
 footer * { color: inherit; }
 
@@ -177,12 +181,12 @@ footer * { color: inherit; }
   padding-top: 10rem; padding-bottom: 1.5rem;
 }
 .page-eyebrow {
-  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--ink); margin-bottom: 1rem;
   opacity: 0; animation: fadeUp 0.9s 0.2s forwards;
 }
 .page-title {
-  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(3.5rem, 9vw, 8rem); line-height: 0.95;
   color: var(--ink);
   opacity: 0; animation: fadeUp 1s 0.4s forwards;
@@ -191,7 +195,7 @@ footer * { color: inherit; }
 
 /* ── Section label (shared between portfolio & experience) ── */
 .section-label {
-  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--primary); padding-bottom: 1rem;
+  font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--soft); padding-bottom: 1rem;
   border-bottom: 2px solid var(--primary);
 }

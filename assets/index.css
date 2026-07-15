@@ -1,6 +1,6 @@
 /* ── Index page body overrides ── */
 body {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.7;
   letter-spacing: 0.02em;
@@ -32,12 +32,12 @@ body {
 .hero-content { display: flex; flex-direction: column; gap: 2rem; }
 
 .hero-eyebrow {
-  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--primary);
+  font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--soft);
   opacity: 0; animation: fadeUp 0.9s 0.2s forwards;
 }
 .hero-name {
-  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(5rem, 10vw, 10rem); line-height: 0.9;
   letter-spacing: -0.02em; color: var(--ink);
   opacity: 0; animation: fadeUp 1s 0.35s forwards;
@@ -55,17 +55,17 @@ body {
   color: var(--cream); background: var(--primary);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
-  transition: gap 0.3s, background 0.25s;
+  transition: gap 0.3s, background 0.25s, color 0.25s;
   opacity: 0; animation: fadeUp 0.9s 0.85s forwards;
   width: fit-content;
 }
-.hero-cta:hover { gap: 1.2rem; background: var(--rose); }
+.hero-cta:hover { gap: 1.2rem; background: var(--rose); color: var(--plum); }
 .hero-cta svg { transition: transform 0.3s; }
 .hero-cta:hover svg { transform: translateX(4px); }
 
 .hero-bottom {
   display: flex; justify-content: space-between; align-items: flex-end;
-  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--soft);
   opacity: 0; animation: fadeIn 1s 1.2s forwards;
   padding-top: 2rem;
@@ -109,15 +109,16 @@ body {
 }
 @media (max-width: 760px) { .about-card { grid-template-columns: 1fr; gap: 2rem; } }
 .about-label {
-  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--primary); margin-bottom: 1.5rem;
+  font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--soft); margin-bottom: 1.5rem;
 }
 .about-headline {
-  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(2rem, 3.8vw, 3.4rem); line-height: 1.1; color: var(--ink);
 }
+.about-headline em { font-style: normal; }
 .about-right { padding-top: 0.25rem; }
-.about-body { font-size: 0.875rem; color: var(--soft); line-height: 1.95; margin-bottom: 1.75rem; }
+.about-body { font-size: 1rem; color: var(--soft); line-height: 1.85; margin-bottom: 1.75rem; }
 
 /* ── Stats bar ── */
 .stats-bar {
@@ -136,12 +137,12 @@ body {
 }
 .stats-bar-item:last-child { border-right: none; }
 .stats-bar-number {
-  font-family: var(--font-display); font-style: italic;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(2.8rem, 4.5vw, 4.5rem); color: var(--rose); line-height: 1;
 }
 .stats-bar-label {
-  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(179,185,139,0.7); margin-top: 0.5rem;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sage-ondark); margin-top: 0.5rem;
 }
 
 /* ── Contact ── */
@@ -154,21 +155,22 @@ body {
 }
 @media (max-width: 680px) { #contact { grid-template-columns: 1fr; } }
 .contact-label {
-  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(255,255,255,0.5); margin-bottom: 2rem;
+  font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85); margin-bottom: 2rem;
 }
 .contact-headline {
-  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(3rem, 6vw, 6rem); line-height: 0.95; color: var(--cream);
 }
-.contact-right { padding-top: 0.5rem; }
+.contact-headline em { font-style: normal; }
+.contact-right { padding-top: 3.3rem; }
 .contact-intro {
-  font-size: 0.875rem; color: rgba(255,255,255,0.65);
-  margin-bottom: 2.5rem; line-height: 1.9;
+  font-size: 1rem; color: rgba(255,255,255,0.85);
+  margin-bottom: 2.5rem; line-height: 1.8;
 }
 .contact-email {
   display: block;
-  font-family: var(--font-display); font-style: italic;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   color: var(--cream); text-decoration: none;
   padding-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -177,15 +179,15 @@ body {
 .contact-email:hover { border-color: rgba(255,255,255,0.8); }
 .social-links { display: flex; gap: 2rem; flex-wrap: wrap; }
 .social-link {
-  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.25s;
+  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.25s;
 }
 .social-link:hover { color: var(--cream); }
 
 /* ── Index footer override (slightly different padding) ── */
 footer {
   padding: 1.75rem clamp(1.5rem, 6vw, 5rem);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 
 /* ── Reveal override for index (slightly different values) ── */
