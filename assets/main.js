@@ -35,6 +35,26 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+/* ── About-section dwell tracking (fires GTM event after 20s continuous view) ── */
+const aboutSection = document.getElementById('about');
+if (aboutSection) {
+  window.dataLayer = window.dataLayer || [];
+  let aboutDwellTimer = null;
+  const aboutObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        aboutDwellTimer = setTimeout(() => {
+          window.dataLayer.push({ event: 'about_dwell_20s' });
+          aboutObserver.unobserve(aboutSection);
+        }, 20000);
+      } else {
+        clearTimeout(aboutDwellTimer);
+      }
+    });
+  }, { threshold: 0.5 });
+  aboutObserver.observe(aboutSection);
+}
+
 /* ── Nav transition overlay ── */
 const overlay    = document.getElementById('contact-overlay');
 const overlayPath = overlay ? overlay.querySelector('.cls-1-ov') : null;
