@@ -145,7 +145,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Trailer -->
     <div class="proj-trailer reveal">
-      <iframe src="https://www.youtube.com/embed/vdL5cp5QZbI?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe>
+      <iframe src="https://www.youtube.com/embed/vdL5cp5QZbI?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe>
     </div>
 
     <!-- Dry Ingredient Dispensing -->
@@ -157,7 +157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>The final dispenser uses an <strong>auger/screw mechanism</strong> driven by a DC motor. A single motor-driven key inserts into each spice slot's keyhole to rotate the auger, dispensing a precise amount. The key is positioned and engaged using an <strong>H-Bridge motor driver</strong> controlling a <strong>linear actuator</strong>, compact, reliable, and quiet compared to earlier approaches.</p>
           <p>Linear actuator extending and retracting to position the DC motor key into the auger slot. Testing engagement timing before the universal key mechanism was finalized.</p>
         </div>
-        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/hAMKv56z01o?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe></div>
+        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/hAMKv56z01o?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe></div>
       </div>
 
       <h3>Enclosure Fit</h3>
@@ -288,7 +288,7 @@ void loop() {
           <p>I also resolved a stepper motor issue during this phase. The motor was moving erratically on startup because it received a small pulse of current before the Arduino fully initialized. Adding a <strong>pull-down resistor</strong> on the step pin absorbed that initial current, eliminating the spurious movement, a small detail critical to dispensing accuracy.</p>
           <p>Universal key engaging the auger screw, dispensing, and retracting. The dog clutch teeth self-align regardless of the auger's resting rotation angle — no manual positioning needed.</p>
         </div>
-        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/GrUfrr2l0sc?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe></div>
+        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/GrUfrr2l0sc?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe></div>
       </div>
 
       <!-- Prototyping dropdown -->
@@ -320,7 +320,7 @@ void loop() {
               <p>I 3D printed a custom adapter to seat the solenoid on top of the motor in four quick iterations. Two constraints emerged from testing. The solenoid wire required limiting rotation to ±180° to avoid tangles, and the energize/de-energize delay needed to be at least 80 ms to let the plunger fully extend.</p>
               <p>Solenoid plunger actuating on the custom stepper-mounted adapter. The mechanism cycled reliably without sugar, but jammed when real material was introduced.</p>
             </div>
-            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/OoINJWxOqBw?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe></div>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/OoINJWxOqBw?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe></div>
           </div>
           <details class="code-details" style="margin-bottom:1.5rem;">
             <summary>Initial Solenoid + Stepper Test Code</summary>
@@ -365,14 +365,14 @@ void loop() {
               <p>Sugar granules jamming the spring-platform after just a few cycles. The tolerance gap needed for the platform to slide left an unsealed path for particles — impossible to clean with PLA.</p>
               <p>After research and consulting three ITLL engineers, I switched to an auger/screw mechanism, since spices are meant to enter the screw's threads rather than be kept out, which works with the material rather than against it.</p>
             </div>
-            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/-leZjsgQryo?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe></div>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/-leZjsgQryo?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe></div>
           </div>
 
           <h3>Rack and Pinion</h3>
           <div class="proj-thirds">
             <p>The first positioning approach used a <strong>stepper motor carousel + rack and pinion</strong> to move a motor horizontally over the correct slot. I CADed the gear myself (first time), laser cut the flat pieces, and 3D printed the gear. The hardware tested well in isolation, but wiring multiple stepper drivers simultaneously caused <strong>electrically floating pins</strong> to generate random motor pulses; idle steppers vibrated uncontrollably. The fix library made motors loud and stuttery, so I replaced the whole approach with the H-Bridge + linear actuator.</p>
-            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/IYUxtR8Yk4k?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe></div>
-            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/hKceOBsZ8JQ?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe></div>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/IYUxtR8Yk4k?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe></div>
+            <div class="yt-crop"><iframe src="https://www.youtube.com/embed/hKceOBsZ8JQ?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe></div>
           </div>
         </div>
       </details>
@@ -443,7 +443,7 @@ void loop() {
           <p>Calibration was determined through systematic trial and error using known reference weights (my phone, then a friend's phone to verify independently). The final calibration factor of <code>-205.0</code> accurately converted the load cell's raw torque readings into grams across multiple test weights.</p>
           <p>Scale calibration test using a known reference weight. The NeoPixel ring fills progressively as weight approaches the target, shifting from yellow to green when within ±5 g.</p>
         </div>
-        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/etPjCf0tMe0?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" allowfullscreen frameborder="0"></iframe></div>
+        <div class="yt-crop"><iframe src="https://www.youtube.com/embed/etPjCf0tMe0?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe></div>
       </div>
     </section>
 
