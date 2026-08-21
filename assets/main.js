@@ -142,6 +142,25 @@ document.querySelectorAll('nav a, a.nav-transition').forEach(link => {
   });
 })();
 
+/* ── Experience page: scroll-spy for the sticky rail's jump-nav ── */
+(function initExpJumpnav() {
+  const jumplinks = document.querySelectorAll('.exp-jumpnav a');
+  if (!jumplinks.length) return;
+  const sections = [...jumplinks]
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  const spyObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const link = document.querySelector(`.exp-jumpnav a[href="#${e.target.id}"]`);
+      if (!link) return;
+      jumplinks.forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => spyObserver.observe(s));
+})();
+
 /* ── Mark active nav link based on current page ── */
 (function markActiveNav() {
   const page = window.location.pathname.split('/').pop() || 'index.html';

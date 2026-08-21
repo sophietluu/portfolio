@@ -35,161 +35,145 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="/experience">Experience</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-dropdown" id="nav-dropdown"></div>
 
-  <!-- Page hero -->
-  <div class="page-hero">
-    <p class="page-eyebrow">My background</p>
-    <h1 class="page-title">Experience</h1>
-  </div>
+  <div class="exp-shell">
 
-  <div class="exp-body">
+    <!-- sticky rail: title, jump-nav, résumé — replaces the old empty hero -->
+    <aside class="exp-rail">
+      <p class="exp-rail-eyebrow reveal">My background</p>
+      <h1 class="exp-rail-title reveal">Experience</h1>
+      <p class="exp-rail-intro reveal reveal-delay-1">Data analyst, AI research intern, course assistant &amp; CMU MIIPS student.</p>
 
-    <!-- Work Experience -->
-    <div class="section-label-wrap">
-      <p class="section-label reveal">Work Experience</p>
-      <img src="../assets/character.svg" class="section-peek reveal" alt="" aria-hidden="true">
-    </div>
-    <div class="exp-list">
+      <div class="exp-jumpnav reveal reveal-delay-1">
+        <a href="#exp-work" class="active">Work Experience</a>
+        <a href="#exp-edu">Education</a>
+        <a href="#exp-skills">Skills</a>
+      </div>
 
-      <div class="exp-entry reveal">
-        <div class="exp-left">
-          <div class="exp-company">THINKware</div>
-          <div class="exp-company-caption">Technology consulting for The Larkin Company</div>
-          <div class="exp-period">June 2022 – July 2022<br>Jan 2023 – Present</div>
-        </div>
-        <div class="exp-right">
-          <p class="exp-title">Data Analyst | Online</p>
+      <a href="../assets/Sophie%20Luu%20-%20Resume.pdf" download="Sophie Luu - Resume.pdf" class="exp-rail-resume reveal reveal-delay-2">
+        Download Résumé
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </aside>
+
+    <!-- dense content stream -->
+    <div class="exp-stream">
+
+      <section id="exp-work">
+        <p class="exp-stream-label reveal">Work Experience</p>
+
+        <div class="exp-role reveal">
+          <div class="exp-role-head">
+            <div class="exp-company">THINKware <span class="exp-role-title">&middot; Data Analyst, Online</span></div>
+            <div class="exp-period">Jun&ndash;Jul 2022, Jan 2023&ndash;Present</div>
+          </div>
+          <p class="exp-company-caption">Technology consulting for The Larkin Company</p>
           <ul class="exp-bullets">
-            <li>Develop and maintain SQL reports that surface actionable insights, giving clients accurate, up-to-date data for decision-making.</li>
-            <li>Mentor and onboard incoming interns, delegating tasks and resolving workflow issues to sustain team productivity.</li>
-            <li>Collaborate cross-functionally to analyze data, identify reporting gaps, and design solutions that improve accuracy and efficiency.</li>
+            <li>Develop clear SQL reports that deliver actionable insights to clients and improve operational efficiency.</li>
+            <li>Onboard and train interns, delegate tasks, and resolve issues to ensure team productivity.</li>
+            <li>Collaborate with teams to analyze data, identify issues, and design effective reporting solutions.</li>
+            <li>Maintain and update reports to ensure clients receive accurate, current data.</li>
+            <li>Led a team of interns to migrate over 155 external and 28 internal reports from Sisense to AWS QuickSight, organizing and distributing workload while writing SQL to convert static Elasticube models into live data models.</li>
+            <li>Built a yearly report summary product from scratch, writing SQL to calculate statistics, storing results in a database, and developing a webpage that automatically ingests the data to produce interactive reports and downloadable PowerPoint decks &mdash; reducing production of 150+ reports from one quarter of work by two experienced CSMs to under 2 minutes.</li>
           </ul>
         </div>
-      </div>
 
-      <div class="exp-entry reveal reveal-delay-1">
-        <div class="exp-left">
-          <div class="exp-company">Asenion <span class="exp-company-note">(formerly Fairly AI)</span></div>
-          <div class="exp-company-caption">AI Governance</div>
-          <div class="exp-period">May 2025 – Aug 2025</div>
-        </div>
-        <div class="exp-right">
-          <p class="exp-title">AI Research Intern | Online</p>
+        <div class="exp-role reveal reveal-delay-1">
+          <div class="exp-role-head">
+            <div class="exp-company">Asenion <span class="exp-company-note">(formerly Fairly AI)</span> <span class="exp-role-title">&middot; AI Research Intern, Online</span></div>
+            <div class="exp-period">May&ndash;Aug 2025</div>
+          </div>
+          <p class="exp-company-caption">AI Governance</p>
           <ul class="exp-bullets">
-            <li>Researched and tested hallucinations, false assertions, and PII exposure across 10+ leading AI models, building an Apps Script tool to analyze 1,000+ data points.</li>
-            <li>Performed QA on enhanced Garak LLM vulnerability probes across the development-to-production pipeline, supporting reliable detection of model risks.</li>
-            <li>Updated policy documentation to align with evolving industry standards and internal guidelines.</li>
+            <li>Conducted comprehensive research and testing on hallucinations, false assertions, and PII in AI models, developing Apps Script to analyze 1,000+ data points across 10+ industry-leading models.</li>
+            <li>Conducted QA on enhanced Garak LLM vulnerability probes throughout the development-to-production pipeline.</li>
+            <li>Updated policy documentation to align with industry standards and company guidelines.</li>
           </ul>
         </div>
-      </div>
 
-      <div class="exp-entry reveal reveal-delay-2">
-        <div class="exp-left">
-          <div class="exp-company">CU Boulder</div>
-          <div class="exp-company-caption">Integrated Design Engineering Department</div>
-          <div class="exp-period">Aug 2025 – May 2026</div>
-        </div>
-        <div class="exp-right">
-          <p class="exp-title">Course Assistant, GEEN 1400</p>
+        <div class="exp-role reveal reveal-delay-2">
+          <div class="exp-role-head">
+            <div class="exp-company">CU Boulder <span class="exp-role-title">&middot; Course Assistant, GEEN 1400</span></div>
+            <div class="exp-period">Aug 2025&ndash;May 2026</div>
+          </div>
+          <p class="exp-company-caption">Integrated Design Engineering Department</p>
           <ul class="exp-bullets">
-            <li>Support student teams through project development, design solutions, and fabrication techniques for Professor Joany Tisdale's first-year engineering course.</li>
-            <li>Guide students in applying technical concepts to project implementation, connecting them with relevant resources and expertise.</li>
-            <li>Grade presentations, reports, and assignments, providing constructive feedback to support learning outcomes.</li>
+            <li>Assist in GEEN 1400 First-Year Engineering Projects under Professor Joany Tisdale.</li>
+            <li>Collaborate with student teams to support project development and learning objectives.</li>
+            <li>Guide students through design solutions, fabrication techniques, and project implementation.</li>
+            <li>Connect students with relevant resources and technical expertise.</li>
+            <li>Assist in grading presentations, reports, and assignments to provide constructive feedback.</li>
           </ul>
         </div>
-      </div>
 
-      <div class="exp-entry reveal reveal-delay-3">
-        <div class="exp-left">
-          <div class="exp-company">The Larkin Company</div>
-          <div class="exp-company-caption">Leave Management &amp; Human Resources</div>
-          <div class="exp-period">June 2021 – July 2021</div>
-        </div>
-        <div class="exp-right">
-          <p class="exp-title">Summer Intern | Online</p>
+        <div class="exp-role reveal reveal-delay-3">
+          <div class="exp-role-head">
+            <div class="exp-company">The Larkin Company <span class="exp-role-title">&middot; Summer Intern, Online</span></div>
+            <div class="exp-period">Jun&ndash;Jul 2021</div>
+          </div>
+          <p class="exp-company-caption">Leave Management &amp; Human Resources</p>
           <ul class="exp-bullets">
-            <li>Created training materials and updated platform content, improving team efficiency and client communication.</li>
-            <li>Designed marketing infographics and provided UX feedback, enhancing digital engagement and usability.</li>
+            <li>Created training materials and updated platform content to improve team efficiency and client communication.</li>
+            <li>Designed marketing infographics and provided UX feedback to enhance digital engagement and usability.</li>
           </ul>
         </div>
-      </div>
+      </section>
+
+      <section id="exp-edu">
+        <p class="exp-stream-label reveal">Education</p>
+        <div class="exp-edu-stack">
+          <div class="exp-edu-entry reveal">
+            <div class="edu-degree">Master of Integrated Innovation for Products &amp; Services</div>
+            <div class="edu-detail">Carnegie Mellon University &middot; Aug 2026&ndash;Dec 2027 (Expected)</div>
+          </div>
+          <div class="exp-edu-entry reveal reveal-delay-1">
+            <div class="edu-degree">B.S. Creative Technology &amp; Design</div>
+            <div class="edu-detail">University of Colorado Boulder &middot; Aug 2022&ndash;May 2026 &middot; GPA 3.85<br>Dean's List (7 semesters) &middot; Chancellor's Achievement Scholarship (8 semesters)</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="exp-skills">
+        <p class="exp-stream-label reveal">Skills</p>
+        <div class="exp-skills-grid">
+          <div class="exp-skill-col">
+            <div class="exp-skill-group reveal">
+              <div class="exp-skill-group-title">Fabrication</div>
+              <div class="exp-skill-tags">
+                <span>OnShape</span><span>Fusion 360</span><span>SketchUp</span><span>Rhino</span>
+                <span>3D Modeling</span><span>3D Printing</span><span>Laser Cutting</span><span>Woodworking</span>
+              </div>
+            </div>
+            <div class="exp-skill-group reveal reveal-delay-1">
+              <div class="exp-skill-group-title">Electronics</div>
+              <div class="exp-skill-tags">
+                <span>Arduino</span><span>Soldering</span>
+              </div>
+            </div>
+          </div>
+          <div class="exp-skill-col">
+            <div class="exp-skill-group reveal reveal-delay-1">
+              <div class="exp-skill-group-title">Design</div>
+              <div class="exp-skill-tags">
+                <span>Figma</span><span>Photoshop</span><span>Illustrator</span><span>InDesign</span><span>Lightroom</span>
+              </div>
+            </div>
+            <div class="exp-skill-group reveal reveal-delay-2">
+              <div class="exp-skill-group-title">Programming</div>
+              <div class="exp-skill-tags">
+                <span>SQL</span><span>Python</span><span>Java</span><span>Swift</span><span>HTML/CSS</span><span>C#</span><span>Arduino</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
-
-    <!-- Education -->
-    <p class="section-label reveal">Education</p>
-    <div class="edu-list">
-      <div class="edu-entry reveal">
-        <div class="edu-degree">Master of Integrated Innovation for Products and Services (MIIPS)</div>
-        <div class="edu-school">Carnegie Mellon University</div>
-        <div class="edu-detail">August 2026 – December 2027 (Expected)</div>
-      </div>
-      <div class="edu-entry reveal reveal-delay-1">
-        <div class="edu-degree">Bachelor of Science in Creative Technology and Design</div>
-        <div class="edu-school">University of Colorado Boulder</div>
-        <div class="edu-detail">August 2022 – May 2026</div>
-        <div class="edu-gpa">GPA 3.85</div>
-        <div class="edu-honors">Dean's List (7 semesters) · Chancellor's Achievement Scholarship recipient (8 semesters)</div>
-      </div>
-    </div>
-
-    <!-- Skills -->
-    <p class="section-label reveal">Skills</p>
-    <div class="skills-grid">
-      <div class="skills-col">
-        <div class="reveal">
-          <div class="skill-group-title">Fabrication</div>
-          <ul class="skill-list">
-            <li>OnShape</li>
-            <li>Fusion 360</li>
-            <li>SketchUp</li>
-            <li>Rhino</li>
-            <li>3D Modeling</li>
-            <li>3D Printing</li>
-            <li>Laser Cutting</li>
-            <li>Woodworking</li>
-          </ul>
-          <div class="skill-group-title">Electronics</div>
-          <ul class="skill-list">
-            <li>Arduino</li>
-            <li>Soldering</li>
-          </ul>
-        </div>
-      </div>
-      <div class="skills-col">
-        <div class="reveal reveal-delay-1">
-          <div class="skill-group-title">Design</div>
-          <ul class="skill-list">
-            <li>Figma</li>
-            <li>Photoshop</li>
-            <li>Illustrator</li>
-            <li>InDesign</li>
-            <li>Lightroom</li>
-          </ul>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <div class="skill-group-title">Programming</div>
-          <ul class="skill-list">
-            <li>SQL</li>
-            <li>Python</li>
-            <li>Java</li>
-            <li>Swift</li>
-            <li>HTML/CSS</li>
-            <li>C#</li>
-            <li>Arduino</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="resume-download-wrap">
-    <a href="../assets/Sophie%20Luu%20-%20Resume.pdf" download="Sophie Luu - Resume.pdf" class="resume-dl-btn">
-      Download Résumé
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
   </div>
 
   <footer>
