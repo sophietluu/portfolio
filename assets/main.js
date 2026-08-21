@@ -35,7 +35,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* ── About-section dwell tracking (fires GTM event after 20s continuous view) ── */
+/* ── About-section dwell tracking (fires GTM event after 5s continuous view) ── */
 const aboutSection = document.getElementById('about');
 if (aboutSection) {
   window.dataLayer = window.dataLayer || [];
@@ -44,9 +44,9 @@ if (aboutSection) {
     entries.forEach(e => {
       if (e.isIntersecting) {
         aboutDwellTimer = setTimeout(() => {
-          window.dataLayer.push({ event: 'about_dwell_20s' });
+          window.dataLayer.push({ event: 'about_dwell_5s' });
           aboutObserver.unobserve(aboutSection);
-        }, 20000);
+        }, 5000);
       } else {
         clearTimeout(aboutDwellTimer);
       }
