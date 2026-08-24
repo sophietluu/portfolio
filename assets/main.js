@@ -35,25 +35,29 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* ── About-section dwell tracking (fires GTM event after 5s continuous view) ── */
-const aboutSection = document.getElementById('about');
-if (aboutSection) {
+/* ── About-section dwell tracking (fires GTM event after N ms continuous view) ── */
+function trackSectionDwell(sectionId, dwellMs = 5000) {
+  const section = document.getElementById(sectionId);
+  if (!section) return;
+
   window.dataLayer = window.dataLayer || [];
-  let aboutDwellTimer = null;
-  const aboutObserver = new IntersectionObserver(entries => {
+  let dwellTimer = null;
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        aboutDwellTimer = setTimeout(() => {
-          window.dataLayer.push({ event: 'about_dwell_5s' });
-          aboutObserver.unobserve(aboutSection);
-        }, 5000);
+        dwellTimer = setTimeout(() => {
+          window.dataLayer.push({ event: 'dwell_time', dwell_time: dwellMs });
+          observer.unobserve(section);
+        }, dwellMs);
       } else {
-        clearTimeout(aboutDwellTimer);
+        clearTimeout(dwellTimer);
       }
     });
   }, { threshold: 0.5 });
-  aboutObserver.observe(aboutSection);
+  observer.observe(section);
 }
+
+trackSectionDwell('about', 5000);
 
 /* ── Nav transition overlay ── */
 const overlay    = document.getElementById('contact-overlay');
