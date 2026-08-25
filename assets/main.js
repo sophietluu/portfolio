@@ -59,6 +59,22 @@ function trackSectionDwell(sectionId, dwellMs = 5000) {
 
 trackSectionDwell('about', 5000);
 
+/* ── GA4 click tracking: contact links, email, resume download ── */
+window.dataLayer = window.dataLayer || [];
+document.addEventListener('click', e => {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const href = link.getAttribute('href') || '';
+
+  if (href.endsWith('#contact')) {
+    window.dataLayer.push({ event: 'contact_page_clicked' });
+  } else if (href.startsWith('mailto:')) {
+    window.dataLayer.push({ event: 'email_clicked' });
+  } else if (link.hasAttribute('download') && href.includes('Resume.pdf')) {
+    window.dataLayer.push({ event: 'resume_download' });
+  }
+});
+
 /* ── Nav transition overlay ── */
 const overlay    = document.getElementById('contact-overlay');
 const overlayPath = overlay ? overlay.querySelector('.cls-1-ov') : null;
