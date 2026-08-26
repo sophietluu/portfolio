@@ -35,22 +35,30 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* ── About-section dwell tracking (fires GTM event after N ms continuous view) ── */
-function trackSectionDwell(sectionId, dwellMs = 5000) {
+/* ── About-section dwell tracking (fires GTM event every N ms of cumulative in-view time) ── */
+function trackSectionDwell(sectionId, intervalMs = 5000, maxMs = 60000) {
   const section = document.getElementById(sectionId);
   if (!section) return;
 
   window.dataLayer = window.dataLayer || [];
-  let dwellTimer = null;
+  let elapsed = 0;
+  let ticker = null;
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        dwellTimer = setTimeout(() => {
-          window.dataLayer.push({ event: 'dwell_time', dwell_time: dwellMs });
-          observer.unobserve(section);
-        }, dwellMs);
+        if (ticker) return;
+        ticker = setInterval(() => {
+          elapsed += intervalMs;
+          window.dataLayer.push({ event: 'dwell_time', dwell_time: elapsed });
+          if (elapsed >= maxMs) {
+            clearInterval(ticker);
+            observer.unobserve(section);
+          }
+        }, intervalMs);
       } else {
-        clearTimeout(dwellTimer);
+        clearInterval(ticker);
+        ticker = null;
       }
     });
   }, { threshold: 0.5 });
