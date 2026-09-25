@@ -127,7 +127,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Overview -->
     <section id="overview" class="proj-section">
       <p class="proj-label">Overview</p>
-      <div class="proj-video-aside reveal">
+      <div class="proj-video-aside">
         <div>
           <p>Measurely is a senior capstone project completed over two semesters. It is an assistive baking device designed to restore independence in the kitchen for people living with arthritis, Parkinson's, or similar mobility conditions. View the project website at <a href="https://measurely.co" target="_blank" rel="noopener" style="color:var(--sage);text-decoration:underline;text-underline-offset:3px;">measurely.co</a>.</p>
           <p>Baking requires a demanding combination of <strong>gross motor strength</strong>, such as pouring heavy ingredients, and <strong>fine motor precision</strong>, measuring spices, leveling spoons. For millions of people, those fine motor requirements present an insurmountable barrier. Managing physical tremors while simultaneously following complex recipe steps creates what researchers call <strong>Cognitive-Motor Interference (CMI)</strong>, which significantly increases error rates and safety risks in the kitchen.</p>
@@ -147,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Trailer -->
-    <div class="proj-trailer reveal">
+    <div class="proj-trailer">
       <iframe src="https://www.youtube.com/embed/vdL5cp5QZbI?modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=https://sophieluu.com" allowfullscreen frameborder="0"></iframe>
     </div>
 
@@ -155,7 +155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="dispensing" class="proj-section">
       <p class="proj-label">Dry Ingredient Dispensing</p>
 
-      <div class="proj-video-aside reveal">
+      <div class="proj-video-aside">
         <div>
           <p>The final dispenser uses an <strong>auger/screw mechanism</strong> driven by a DC motor. A single motor-driven key inserts into each spice slot's keyhole to rotate the auger, dispensing a precise amount. The key is positioned and engaged using an <strong>H-Bridge motor driver</strong> controlling a <strong>linear actuator</strong>, compact, reliable, and quiet compared to earlier approaches.</p>
           <p>Linear actuator extending and retracting to position the DC motor key into the auger slot. Testing engagement timing before the universal key mechanism was finalized.</p>
@@ -166,7 +166,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>Enclosure Fit</h3>
       <p>After printing the first enclosure, I found the DC motor fitting was slightly too short and the canal for the linear actuator was too narrow, causing the key to scrape during operation. I remeasured both, updated the CAD, and reprinted. I also discovered the bottom enclosure was unnecessary, as the linear actuator's consistent movement eliminated the shaking that had required extra support in earlier designs.</p>
 
-      <div class="proj-img-pair reveal">
+      <div class="proj-img-pair">
         <div class="proj-img">
           <img src="../assets/projects/measurely/measurely-dispenser-enclosure-cad-v2.png" alt="Dispenser enclosure CAD, revised fit">
         </div>
@@ -178,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>Dispensing Function</h3>
       <p>I wrote the dispensing logic as a modular <code>dispense_tsp(tsp)</code> function. Each teaspoon maps to a calibrated run duration, so the motor runs for a set amount of time rather than counting rotations. The function extends the linear actuator to engage the key, runs the DC motor for the corresponding duration, then retracts. This made it straightforward to call with different quantities from Sam's interface code.</p>
 
-      <details class="code-details reveal">
+      <details class="code-details">
         <summary>dispense_tsp() / Dispensing Control Code</summary>
         <pre><code>// Linear actuator
 const int PWMA = 4, AI1 = 5, AI2 = 6, STBY = 7;
@@ -220,7 +220,7 @@ void dispense_tsp(float tsp) {
       <p>After Lily's testing revealed that the auger screw could end up in a different rotational position after each dispensing cycle, we realized our key insertion would fail unless the keyhole happened to line up. We needed a key that would engage reliably at any insertion angle. After consulting three ITLL engineers, I settled on a <strong>dog clutch</strong>, a mechanism used in car transmissions where interlocking teeth engage regardless of entry angle. I added a slight ramp on each tooth to guide misaligned teeth into their slots during rotation.</p>
       <p>I added a <strong>copper tape contact switch</strong> at the engagement point. While the key is rotating and not fully seated, the circuit stays open. Once the teeth slot fully into place, the copper tape pads touch and close the circuit, signaling the Arduino that engagement is confirmed and it can start counting dispense time. This turned a mechanical precision problem into an electrical one.</p>
 
-      <div class="proj-img-pair reveal">
+      <div class="proj-img-pair">
         <div class="proj-img">
           <img src="../assets/projects/measurely/universal_key_sketches.jpg" alt="Dog clutch brainstorm sketches">
         </div>
@@ -231,7 +231,7 @@ void dispense_tsp(float tsp) {
 
       <p>To prevent wiring from twisting as the assembly rotates, I integrated a <strong>slip ring</strong>, an electromechanical connector that transfers power and signals from a stationary wire to a rotating component. I designed a rod that attaches to the DC motor shaft, press-fits into the inner portion of the slip ring, and mounts one half of the dog clutch on the opposite end.</p>
 
-      <div class="proj-img-pair reveal">
+      <div class="proj-img-pair">
         <div class="proj-img">
           <img src="../assets/projects/measurely/universal_key_iterations.jpg" alt="Universal key printed iterations">
         </div>
@@ -240,7 +240,7 @@ void dispense_tsp(float tsp) {
         </div>
       </div>
 
-      <details class="code-details reveal">
+      <details class="code-details">
         <summary>Universal Key / Engagement-Triggered Dispense Code</summary>
         <pre><code>const int inputPin    = 3;   // copper tape contact
 const int PWMA = 4, AI1 = 5, AI2 = 6, STBY = 7;
@@ -273,7 +273,7 @@ void loop() {
       </details>
 
       <h3>Iteration and Reinforcement</h3>
-      <div class="proj-video-aside reveal">
+      <div class="proj-video-aside">
         <div>
           <p>When we first loaded the screw with spice and tested, the jam force broke the key. The walls of the attachment are thin by necessity (they must fit through the center of the slip ring), leaving little material at the point of highest stress. I made three structural improvements in CAD:</p>
           <ul class="proj-list">
@@ -286,7 +286,7 @@ void loop() {
         <img src="../assets/projects/measurely/universal_key_cad.png" alt="Universal key CAD model">
       </div>
 
-      <div class="proj-video-aside reveal">
+      <div class="proj-video-aside">
         <div>
           <p>I also resolved a stepper motor issue during this phase. The motor was moving erratically on startup because it received a small pulse of current before the Arduino fully initialized. Adding a <strong>pull-down resistor</strong> on the step pin absorbed that initial current, eliminating the spurious movement, a small detail critical to dispensing accuracy.</p>
           <p>Universal key engaging the auger screw, dispensing, and retracting. The dog clutch teeth self-align regardless of the auger's resting rotation angle — no manual positioning needed.</p>
@@ -295,7 +295,7 @@ void loop() {
       </div>
 
       <!-- Prototyping dropdown -->
-      <details class="proj-toggle reveal">
+      <details class="proj-toggle">
         <summary>Prototyping / What Didn't Make It</summary>
 
         <div style="padding: 1.25rem 1.5rem 0.5rem;">
@@ -387,7 +387,7 @@ void loop() {
       <p>The scale needed to accurately measure ingredient weight and give users a clear, intuitive visual signal so they know when to stop pouring without watching a number on a screen.</p>
 
       <h3>Hardware Design</h3>
-      <div class="proj-video-aside reveal">
+      <div class="proj-video-aside">
         <div>
           <p>The scale uses a <strong>5 kg HX711 load cell</strong>. To convert torque into weight accurately, I designed thin spacers using calipers-measured M4 and M5 hardware. The surface is a <strong>three-layer acrylic stack</strong>. The first layer mounts the load cell, the second spaces the screw head from the shank, and the third (slightly translucent) serves as the decorative top surface and diffuses the LED light evenly. The diameter is 7 inches, with the top plate extending 0.2 inches larger to accommodate the NeoPixel strip underneath.</p>
           <p>One challenge was the gray metal screw was visible through the translucent top plate. I tried opaque tape, paper inserts, and surface sanding, all of which looked unprofessional. The fix was painting the screw white; the top layer's light-diffusing properties blurred the slight texture irregularities from the paint, producing a clean result.</p>
@@ -396,7 +396,7 @@ void loop() {
       </div>
 
       <h3>NeoPixel Feedback</h3>
-      <div class="proj-video-aside reveal">
+      <div class="proj-video-aside">
         <div>
           <p>Based on mentor feedback from Dr. Zarske, I upgraded from a simple on/off LED strip to an <strong>Adafruit NeoPixel ring</strong> (94 pixels) that fills progressively as weight approaches the target and changes color based on accuracy, yellow for underweight, green for on-target (±5 g), and red for overweight. An engraving on the top surface guides users to center their bowl.</p>
           <details class="code-details">
@@ -465,7 +465,7 @@ void loop() {
         <li><strong>3D printed scale ring</strong> that raises the scale to the correct height while routing wires underneath through designated slots</li>
       </ul>
 
-      <div class="proj-img-trio reveal">
+      <div class="proj-img-trio">
         <div class="proj-img">
           <img src="../assets/projects/measurely/v1_cad_prototype_front.png" alt="Enclosure V1 CAD, front isometric">
         </div>
@@ -478,7 +478,7 @@ void loop() {
       </div>
 
       <h3>Laser Cutting and Assembly</h3>
-      <div class="proj-video-aside reveal">
+      <div class="proj-video-aside">
         <p>The first laser cut failed due to an out-of-focus laser; I discarded the material, switched machines, and the second attempt produced clean cuts. Assembly was straightforward using wood glue on the interlocking joints, and the rocker switch seated perfectly, validating my tolerance calculations before the Arduino had even arrived for test-fitting.</p>
         <div class="aside-media">
           <img src="../assets/projects/measurely/prototype_enclosure_assembled.jpg" alt="Prototype enclosure assembled">
@@ -487,7 +487,7 @@ void loop() {
 
       <h3>Button Supports and Final Integration</h3>
       <p>I designed and 3D printed custom support brackets for the keyboard switch boards. The first iteration was too tall, leaving the switch mechanism visible below the keycap. I also trimmed the protoboards to fit the enclosure's spacing, updated the CAD, and printed a second iteration with correct dimensions. The final result was flush-mounted, satisfying tactile buttons.</p>
-      <div class="proj-thirds reveal">
+      <div class="proj-thirds">
         <img src="../assets/projects/measurely/tacile_buttons_on_breadboard.jpg" alt="Tactile keyboard switches on breadboard with Arduino Giga">
         <img src="../assets/projects/measurely/final_integration_front_with_wiring.jpg" alt="Integrated prototype, front open showing wiring">
         <img src="../assets/projects/measurely/final_integration_back_open_wiring.jpg" alt="Integrated prototype, back open showing wiring">
@@ -524,7 +524,7 @@ void loop() {
     <section id="final" class="proj-section">
       <p class="proj-label">Final Product</p>
 
-      <div class="proj-thirds reveal">
+      <div class="proj-thirds">
         <img src="../assets/projects/measurely/solution.jpg" alt="Measurely final product">
         <img src="../assets/projects/measurely/solution2.jpg" alt="Measurely final product 2">
         <img src="../assets/projects/measurely/solution3.png" alt="Measurely final product 3">

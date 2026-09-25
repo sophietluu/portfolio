@@ -90,13 +90,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <main class="project-content">
 
     <!-- Overview -->
-    <section id="overview" class="proj-section reveal">
+    <section id="overview" class="proj-section">
       <p class="proj-label">Overview</p>
       <p>The plant care system is designed to automatically water plants based on soil moisture. Instead of worrying about your plants while you are on vacation, just fill the tank and watch them grow! I used three soil sensors to detect when a plant needs water. If a plant requires more water, a specific amount will be dispensed. Each plant has its own water threshold value, ensuring the water supply is tailored to each plant's needs.</p>
     </section>
 
     <!-- Improvements -->
-    <section id="improvements" class="proj-section reveal">
+    <section id="improvements" class="proj-section">
       <p class="proj-label">Improvements</p>
       <p>Changes and upgrades based on what I learned from my original prototype.</p>
       <ul class="proj-list">
@@ -121,7 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Materials -->
-    <section id="materials" class="proj-section reveal">
+    <section id="materials" class="proj-section">
       <p class="proj-label">Materials</p>
       <ul class="proj-list">
         <li>3 Solenoid Valves: power on = open, power off = closed</li>
@@ -137,13 +137,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Circuit -->
-    <section id="circuit" class="proj-section reveal">
+    <section id="circuit" class="proj-section">
       <p class="proj-label">Circuit</p>
 
       <p>I used <a href="https://www.circuito.io" target="_blank" rel="noopener" class="proj-link">circuito.io</a> to build the circuit diagram, which helped me organize wire routing, identify the best connection paths, and source additional components beyond the main solenoid valve and soil sensor. All parts were then sourced from <a href="https://www.sparkfun.com" target="_blank" rel="noopener" class="proj-link">SparkFun</a>.</p>
       <p>Although I primarily followed this circuit diagram, I made a few minor changes during assembly for ease of construction.</p>
 
-      <div class="proj-img reveal">
+      <div class="proj-img">
         <img src="../assets/projects/plantcare/circuit_diagram.png" alt="Plant care circuit diagram">
       </div>
 
@@ -154,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li>Uploaded test code to verify soil sensors and solenoid valves were working as expected.</li>
       </ul>
 
-      <details class="code-details reveal">
+      <details class="code-details">
         <summary>Test Code</summary>
         <pre><code>// Include Libraries
 #include "Arduino.h"
@@ -225,11 +225,11 @@ char menu() {
     </section>
 
     <!-- Code -->
-    <section id="code" class="proj-section reveal">
+    <section id="code" class="proj-section">
       <p class="proj-label">Final Code</p>
       <p>With all components confirmed working, I wrote the final code to achieve the desired watering functionality, reading each sensor, checking against its moisture threshold, and opening the appropriate solenoid valve for a set duration before entering a cooldown period.</p>
 
-      <details class="code-details reveal">
+      <details class="code-details">
         <summary>Final Code</summary>
         <pre><code>// Include Libraries
 #include "Arduino.h"
@@ -305,12 +305,12 @@ void activateSolenoidValve(SolenoidValve&amp; valve, bool&amp; valveActive) {
     </section>
 
     <!-- Fabrication -->
-    <section id="fabrication" class="proj-section reveal">
+    <section id="fabrication" class="proj-section">
       <p class="proj-label">Fabrication</p>
       <p>I started by modelling the enclosure in CAD, keeping a similar shape to my previous prototype. After measuring the birch wood thickness (0.205 in), I laser cut the pieces and assembled the enclosure with wood glue.</p>
       <p>The main challenge was cutting pieces to the precise dimensions from my CAD model; small tolerances in the laser cutter required a few iterations to get tight-fitting joints.</p>
 
-      <div class="proj-img-pair reveal">
+      <div class="proj-img-pair">
         <div class="proj-img">
           <img src="../assets/projects/plantcare/CAD1.png" alt="Plant care enclosure CAD model view 1">
         </div>
@@ -319,7 +319,7 @@ void activateSolenoidValve(SolenoidValve&amp; valve, bool&amp; valveActive) {
         </div>
       </div>
 
-      <div class="proj-img-pair reveal">
+      <div class="proj-img-pair">
         <div class="proj-img">
           <img src="../assets/projects/plantcare/wiring_1.jpg" alt="Wiring detail 1">
         </div>
@@ -330,10 +330,10 @@ void activateSolenoidValve(SolenoidValve&amp; valve, bool&amp; valveActive) {
     </section>
 
     <!-- Final Product -->
-    <section id="final" class="proj-section reveal">
+    <section id="final" class="proj-section">
       <p class="proj-label">Final Product</p>
 
-      <div class="proj-final-stack reveal">
+      <div class="proj-final-stack">
         <div class="proj-img">
           <video src="../assets/projects/plantcare/final_vid.mov" controls playsinline></video>
         </div>
