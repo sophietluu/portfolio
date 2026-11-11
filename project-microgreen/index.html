@@ -382,6 +382,10 @@ void loop() {
       const triggerY = window.scrollY + window.innerHeight * 0.4;
       let current = tlSections[0];
       tlSections.forEach(s => { if (s.offsetTop <= triggerY) current = s; });
+      // At the bottom of the page, short final sections never reach the trigger line
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+        current = tlSections[tlSections.length - 1];
+      }
       updateTimeline(current.id);
     }
 
