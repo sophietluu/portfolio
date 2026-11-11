@@ -43,7 +43,7 @@ body {
 }
 .hero-name span { display: block; color: var(--ink); }
 .hero-tagline {
-  max-width: 48ch; font-size: 0.9rem;
+  max-width: 48ch; font-size: 1rem;
   color: var(--soft); line-height: 1.85;
   opacity: 0; animation: fadeUp 0.9s 0.65s forwards;
 }
