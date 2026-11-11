@@ -8,7 +8,6 @@ body {
   line-height: 1.7;
   letter-spacing: 0.02em;
   overflow-x: hidden;
-  cursor: none;
 }
 
 /* ── Back link ── */
@@ -479,7 +478,7 @@ body {
 .code-details summary {
   font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--ink); padding: 0.85rem 1.25rem;
-  cursor: none; list-style: none;
+  cursor: pointer; list-style: none;
   display: flex; align-items: center; gap: 0.5rem;
   background: var(--sand);
   transition: background 0.2s;

@@ -13,17 +13,6 @@ if (logoPath) {
   logoPath.style.animation = 'trace-logo 2s ease forwards';
 }
 
-/* ── Custom cursor tracking + on-dark toggle ── */
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top  = e.clientY + 'px';
-});
-document.querySelectorAll('.stats-bar, footer, #contact, .code-block, .coming-soon').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('on-dark'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('on-dark'));
-});
-
 /* ── IntersectionObserver for .reveal elements ── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {

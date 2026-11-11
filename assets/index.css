@@ -5,7 +5,6 @@ body {
   line-height: 1.7;
   letter-spacing: 0.02em;
   overflow-x: hidden;
-  cursor: none;
 }
 
 /* ── Hero (split layout) ── */
@@ -103,11 +102,14 @@ body {
 .about-card {
   background: var(--cream);
   padding: clamp(2rem, 5vw, 4rem);
-  display: grid; grid-template-columns: 1fr 1.3fr;
-  gap: 4rem; align-items: start;
   outline: 4px solid var(--sage);
 }
-@media (max-width: 760px) { .about-card { grid-template-columns: 1fr; gap: 2rem; } }
+.about-left { margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
+.about-right {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: start;
+}
+@media (max-width: 760px) { .about-right { grid-template-columns: 1fr; gap: 0; } }
 .about-label {
   font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--soft); margin-bottom: 1.5rem;
@@ -117,7 +119,6 @@ body {
   font-size: clamp(2rem, 3.8vw, 3.4rem); line-height: 1.1; color: var(--ink);
 }
 .about-headline em { font-style: normal; }
-.about-right { padding-top: 0.25rem; }
 .about-body { font-size: 1rem; color: var(--soft); line-height: 1.85; margin-bottom: 1.75rem; }
 
 /* ── Contact ── */
