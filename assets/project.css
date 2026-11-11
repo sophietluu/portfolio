@@ -139,7 +139,7 @@ body {
   padding: 1.5rem clamp(1.5rem, 6vw, 5rem) var(--gap);
 }
 @media (min-width: 851px) {
-  .project-content { padding-right: clamp(145px, 11vw, 170px); }
+  .project-content { padding-right: clamp(185px, 14vw, 210px); }
 }
 
 /* ── Overview two-column layout ── */
