@@ -83,13 +83,7 @@ body {
 .project-name {
   font-family: var(--font-display); font-weight: 400;
   font-size: 1.6rem; color: #fff;
-  line-height: 1.15; margin-bottom: 0.5rem;
-}
-.project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.project-tag {
-  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 0.2rem 0.6rem; border: 1px solid rgba(179,185,139,0.7);
-  color: rgba(255,255,255,0.85); border-radius: 2px;
+  line-height: 1.15;
 }
 
 /* Full-width featured card */
